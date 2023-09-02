@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Nadlan</title>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <a>Logo</a>
+        <a>Login</a>
+    </nav>
     <form action="index.php" method="post">
         <label>Home</label><br>
         <input type="text" name="home" /><br>

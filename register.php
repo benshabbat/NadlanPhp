@@ -27,9 +27,20 @@ include "./html/header.html"
         <input type="password" name="password" /><br>
         <label>Password</label><br>
         <input type="password" name="password2" /><br>
-        <button type="submit">Register</button>
+        <button type="submit" name="register">Register</button>
     </form>
 
 </body>
 
 </html>
+<?php
+if (isset($_POST['register'])) {
+
+    $password = $_POST['password'];
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+}
+echo password_verify($password,  $hash).'<br>';
+
+echo $hash;
+
+?>

@@ -14,7 +14,7 @@ include "./html/header.html"
 
 <body>
 
-    <form action="index.php" method="post">
+    <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
         <h2>Create Home</h2>
         <label>Property Type</label><br>
         For Sale

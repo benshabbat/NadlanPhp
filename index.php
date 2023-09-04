@@ -1,6 +1,6 @@
 <?php
-include "./html/header.html"
-
+include "./html/header.html";
+include "./database.php";
 ?>
 
 <!DOCTYPE html>

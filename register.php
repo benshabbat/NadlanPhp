@@ -15,7 +15,7 @@ include "./html/header.html"
 
 <body>
 
-    <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
+    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h2>Register</h2>
         <label>Username</label><br>
         <input type="text" name="username" /><br>

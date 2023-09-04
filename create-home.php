@@ -14,13 +14,13 @@ include "./html/header.html"
 
 <body>
 
-    <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
+    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h2>Create Home</h2>
         <label>Property Type</label><br>
         For Sale
-        <input type="radio" name="propertyType" value="sale"/>
+        <input type="radio" name="propertyType" value="sale" />
         For Rent
-        <input type="radio" name="propertyType" value="rent"/>
+        <input type="radio" name="propertyType" value="rent" />
         <br>
         <label>City</label><br>
         <input type="text" name="city" /><br>

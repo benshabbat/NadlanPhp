@@ -28,7 +28,7 @@ include "./html/header.html"
         <input type="text" name="address" /><br>
         <label>Photos</label><br>
         <input type="file" name="photos" /><br>
-        <label>Desription</label><br>
+        <label>Description</label><br>
         <input type="text" name="description" /><br>
         <label>Perks</label><br>
         <input type="text" name="perks" /><br>

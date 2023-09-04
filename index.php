@@ -28,4 +28,3 @@ include "./html/header.html"
 </body>
 
 </html>
-<?php echo "$_POST[home]" ?>

@@ -14,10 +14,6 @@ include "./html/header.html"
 </head>
 
 <body>
-    <nav class="nav-bar">
-        <a>Logo</a>
-        <a>Login</a>
-    </nav>
     <form action="index.php" method="post">
         <h2>Login</h2>
         <label>Username</label><br>

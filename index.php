@@ -1,3 +1,8 @@
+<?php
+include "./html/header.html"
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +14,6 @@
 </head>
 
 <body>
-    <nav class="nav-bar">
-        <a>Logo</a>
-        <a>Login</a>
-    </nav>
     <form action="index.php" method="post">
         <label>Home</label><br>
         <input type="text" name="home" /><br>

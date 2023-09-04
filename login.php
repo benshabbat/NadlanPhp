@@ -1,3 +1,8 @@
+<?php
+include "./html/header.html"
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,7 @@
+<?php
+include "./html/header.html"
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +13,15 @@
 </head>
 
 <body>
-    <nav class="nav-bar">
-        <a>Logo</a>
-        <a>Login</a>
-    </nav>
+
     <form action="index.php" method="post">
         <h2>Create Home</h2>
         <label>Property Type</label><br>
-        <input type="text" name="propertyType" /><br>
+        For Sale
+        <input type="radio" name="propertyType" value="sale"/>
+        For Rent
+        <input type="radio" name="propertyType" value="rent"/>
+        <br>
         <label>City</label><br>
         <input type="text" name="city" /><br>
         <label>Address</label><br>
@@ -28,9 +33,9 @@
         <label>Perks</label><br>
         <input type="text" name="perks" /><br>
         <label>Price</label><br>
-        <input type="slide" name="price" /><br>
+        <input type="number" name="price" /><br>
         <label>Rooms</label><br>
-        <input type="number" name="rooms" /><br>
+        <input type="number" name="rooms" min=1 /><br>
         <button type="submit">Create</button>
     </form>
 

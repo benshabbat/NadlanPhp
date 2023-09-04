@@ -1,3 +1,8 @@
+<?php
+include "./html/header.html"
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +14,7 @@
 </head>
 
 <body>
-    <nav class="nav-bar">
-        <a>Logo</a>
-        <a>Login</a>
-    </nav>
+
     <form action="index.php" method="post">
         <h2>Register</h2>
         <label>Username</label><br>

@@ -40,6 +40,7 @@ if (isset($_POST['register'])) {
     $phone = $_POST['phone'];
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
+    $hash="";
     if (strcmp($password, $password2) == 0) {
 
         $hash = password_hash($password, PASSWORD_DEFAULT);

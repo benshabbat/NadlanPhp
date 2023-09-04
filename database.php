@@ -1,16 +1,19 @@
 <?php
 
-$db_server ="localhost";
+$db_server = "localhost";
 $db_user = "root";
 $db_pass = "";
 $db_name = "nadlandb";
-$conn = mysqli_connect($db_server,$db_user,$db_pass,$db_name);
+try {
 
-if($conn){
-    echo "you are connected";
+    $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+} catch (mysqli_sql_exception) {
 
-}
-else{
+
     echo "you are not connected";
+}
+
+if ($conn) {
+    echo "you are connected";
 }
 ?>

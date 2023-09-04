@@ -18,15 +18,15 @@ include "./database.php";
     <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h2>Register</h2>
         <label>Username</label><br>
-        <input type="text" name="username" /><br>
+        <input type="text" name="username" required/><br>
         <label>Email</label><br>
-        <input type="email" name="email" /><br>
+        <input type="email" name="email" required/><br>
         <label>Phone</label><br>
-        <input type="phone" name="phone" /><br>
+        <input type="phone" name="phone" required/><br>
         <label>Password</label><br>
-        <input type="password" name="password" /><br>
+        <input type="password" name="password" required/><br>
         <label>Password</label><br>
-        <input type="password" name="password2" /><br>
+        <input type="password" name="password2" required/><br>
         <button type="submit" name="register">Register</button>
     </form>
 
@@ -35,12 +35,12 @@ include "./database.php";
 </html>
 <?php
 if (isset($_POST['register'])) {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $password = $_POST['password'];
-    $password2 = $_POST['password2'];
-    $hash="";
+    $username =  filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $email =  filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+    $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password2 = filter_input(INPUT_POST, "password2", FILTER_SANITIZE_SPECIAL_CHARS);
+    $hash = "";
     if (strcmp($password, $password2) == 0) {
 
         $hash = password_hash($password, PASSWORD_DEFAULT);

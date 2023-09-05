@@ -26,12 +26,18 @@ include "./html/header.html"
         <input type="text" name="city" /><br>
         <label>Address</label><br>
         <input type="text" name="address" /><br>
+        <label>Floor</label><br>
+        <input type="text" name="floor" /><br>
         <label>Photos</label><br>
         <input type="file" name="photos" /><br>
         <label>Description</label><br>
         <input type="text" name="description" /><br>
         <label>Perks</label><br>
-        <input type="text" name="perks" /><br>
+        <input type="checkbox" name="perks[]" value="air_conditioner" /><br>
+        <input type="checkbox" name="perks[]" value="elevator" /><br>
+        <input type="checkbox" name="perks[]" value="renovated" /><br>
+        <input type="checkbox" name="perks[]" value="furnished" /><br>
+        <input type="checkbox" name="perks[]" value="bars" /><br>
         <label>Price</label><br>
         <input type="number" name="price" /><br>
         <label>Rooms</label><br>

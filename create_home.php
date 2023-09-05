@@ -16,31 +16,31 @@ include "./html/header.html"
 
     <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h2>Create Home</h2>
-        <label>Property Type</label><br>
+        <label for="property_type">Property Type</label><br>
         For Sale
-        <input type="radio" name="propertyType" value="sale" />
+        <input type="radio" name="property_type" value="sale" />
         For Rent
-        <input type="radio" name="propertyType" value="rent" />
+        <input type="radio" name="property_type" value="rent" />
         <br>
-        <label>City</label><br>
+        <label for="city">City</label><br>
         <input type="text" name="city" /><br>
-        <label>Address</label><br>
+        <label for="address">Address</label><br>
         <input type="text" name="address" /><br>
-        <label>Floor</label><br>
+        <label for="floor">Floor</label><br>
         <input type="text" name="floor" /><br>
-        <label>Photos</label><br>
+        <label for="photos">Photos</label><br>
         <input type="file" name="photos" /><br>
-        <label>Description</label><br>
+        <label for="description">Description</label><br>
         <input type="text" name="description" /><br>
-        <label>Perks</label><br>
+        <label for="perks[]">Perks</label><br>
         <input type="checkbox" name="perks[]" value="air_conditioner" />Air Conditioner<br>
         <input type="checkbox" name="perks[]" value="elevator" />Elevator<br>
         <input type="checkbox" name="perks[]" value="renovated" />Renovated<br>
         <input type="checkbox" name="perks[]" value="furnished" />Furnished<br>
         <input type="checkbox" name="perks[]" value="bars" />Bars<br>
-        <label>Price</label><br>
+        <label for="price">Price</label><br>
         <input type="number" name="price" /><br>
-        <label>Rooms</label><br>
+        <label for="rooms">Rooms</label><br>
         <input type="number" name="rooms" min=1 /><br>
         <button type="submit" name="create">Create</button>
     </form>

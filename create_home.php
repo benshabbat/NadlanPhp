@@ -33,18 +33,27 @@ include "./html/header.html"
         <label>Description</label><br>
         <input type="text" name="description" /><br>
         <label>Perks</label><br>
-        <input type="checkbox" name="perks[]" value="air_conditioner" /><br>
-        <input type="checkbox" name="perks[]" value="elevator" /><br>
-        <input type="checkbox" name="perks[]" value="renovated" /><br>
-        <input type="checkbox" name="perks[]" value="furnished" /><br>
-        <input type="checkbox" name="perks[]" value="bars" /><br>
+        <input type="checkbox" name="perks[]" value="air_conditioner" />Air Conditioner<br>
+        <input type="checkbox" name="perks[]" value="elevator" />Elevator<br>
+        <input type="checkbox" name="perks[]" value="renovated" />Renovated<br>
+        <input type="checkbox" name="perks[]" value="furnished" />Furnished<br>
+        <input type="checkbox" name="perks[]" value="bars" />Bars<br>
         <label>Price</label><br>
         <input type="number" name="price" /><br>
         <label>Rooms</label><br>
         <input type="number" name="rooms" min=1 /><br>
-        <button type="submit">Create</button>
+        <button type="submit" name="create">Create</button>
     </form>
 
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['create'])) {
+    echo "hello";
+    $perks = $_POST['perks'];
+    $perks = implode(',',$perks);
+    echo $perks;
+}
+?>

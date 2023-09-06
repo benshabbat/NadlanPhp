@@ -1,6 +1,7 @@
 <?php
 include "./html/header.html";
-include "./check.php";
+include "./requests.php";
+req_register();
 ?>
 
 <!DOCTYPE html>

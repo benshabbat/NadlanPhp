@@ -1,6 +1,7 @@
 <?php
 include "./html/header.html";
-include "./database.php";
+// include "./database.php";
+include "./requests.php"
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +28,6 @@ include "./database.php";
 
 </html>
 <?php
+req_login()
 
-if (isset($_POST['login'])) {
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    header("location: /ProjectPhp/index.php");
-}
 ?>

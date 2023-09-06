@@ -51,9 +51,15 @@ include "./html/header.html"
 
 <?php
 if (isset($_POST['create'])) {
-    echo "hello";
+    $property_type = $_POST['property_type'];
+    $city = filter_input(INPUT_POST, "city", FILTER_SANITIZE_SPECIAL_CHARS);
+    $address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
+    $floor = filter_input(INPUT_POST, "address", FILTER_SANITIZE_NUMBER_INT);
+    $description =  filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS);
+    $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_INT);
+    $rooms = filter_input(INPUT_POST, "rooms", FILTER_SANITIZE_NUMBER_INT);
     $perks = $_POST['perks'];
-    $perks = implode(',',$perks);
-    echo $perks;
+    $perks = implode(',', $perks);
+    echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms;
 }
 ?>

@@ -17,9 +17,9 @@ include "./database.php";
     <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h2>Login</h2>
         <label>Username</label><br>
-        <input type="text" name="username" /><br>
+        <input type="text" name="username" required/><br>
         <label>Password</label><br>
-        <input type="password" name="password" /><br>
+        <input type="password" name="password" required/><br>
         <button type="submit" name="login">Login</button>
     </form>
 

@@ -1,7 +1,9 @@
 <?php
 // include "./database.php";
 echo "hello";
-function req_register(){
+include "./sql.php";
+function req_register()
+{
 
     if (isset($_POST['register'])) {
         $username =  filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -11,13 +13,12 @@ function req_register(){
         $password2 = filter_input(INPUT_POST, "password2", FILTER_SANITIZE_SPECIAL_CHARS);
         $hash = "";
         if (strcmp($password, $password2) == 0) {
-            
+
             $hash = password_hash($password, PASSWORD_DEFAULT);
         }
-        include "./sql_register.php";
-     
+        sql_register($username, $email, $phone, $hash);
         // $sql = "INSERT INTO users (username, email, phone, password) VALUES ('$username', '$email','$phone', ' $hash')";
-    
+
         // try {
         //     mysqli_query($conn, $sql);
         //     echo "user is now registered";
@@ -26,13 +27,15 @@ function req_register(){
         // }
     }
     echo password_verify($password,  $hash) . '<br>';
-    
+
     echo $hash;
 }
-function req_login(){
+function req_login()
+{
     if (isset($_POST['login'])) {
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+        sql_login($username, $password);
         header("location: /ProjectPhp/index.php");
     }
 }

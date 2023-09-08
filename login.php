@@ -1,6 +1,5 @@
 <?php
 include "./html/header.html";
-// include "./database.php";
 include "./requests.php"
 ?>
 

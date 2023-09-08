@@ -39,4 +39,8 @@ function req_login()
         header("location: /ProjectPhp/index.php");
     }
 }
+
+function req_create_home(){
+    
+}
 // mysqli_close($conn);

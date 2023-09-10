@@ -16,19 +16,19 @@ req_register();
 
 <body>
 
-    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <h2>Register</h2>
-        <label>Username</label><br>
-        <input type="text" name="username" required/><br>
-        <label>Email</label><br>
-        <input type="email" name="email" required/><br>
-        <label>Phone</label><br>
-        <input type="phone" name="phone" required/><br>
-        <label>Password</label><br>
-        <input type="password" name="password" required/><br>
-        <label>Password</label><br>
-        <input type="password" name="password2" required/><br>
-        <button type="submit" name="register">Register</button>
+    <form class="form"  action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+        <h2 class="header">Register</h2>
+        <label class="form-label"><span>Username</span></label>
+        <input type="text" name="username" required/>
+        <label class="form-label"><span>Email</span></label>
+        <input type="email" name="email" required/>
+        <label class="form-label"><span>Phone</span></label>
+        <input type="phone" name="phone" required/>
+        <label class="form-label"><span>Password</span></label>
+        <input type="password" name="password" required/>
+        <label class="form-label"><span>Confirm Password</span></label>
+        <input type="password" name="confirm_password" required/>
+        <button class="form-btn" type="submit" name="register">Register</button>
     </form>
 
 </body>

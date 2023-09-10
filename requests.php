@@ -10,9 +10,9 @@ function req_register()
         $email =  filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
         $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-        $password2 = filter_input(INPUT_POST, "password2", FILTER_SANITIZE_SPECIAL_CHARS);
+        $confirm_password = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);
         $hash = "";
-        if (strcmp($password, $password2) == 0) {
+        if (strcmp($password, $confirm_password) == 0) {
 
             $hash = password_hash($password, PASSWORD_DEFAULT);
         }

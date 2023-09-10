@@ -14,7 +14,7 @@ include "./requests.php"
 </head>
 
 <body>
-    <form class="form"  action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+    <form class="form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h2 class="header">Login</h2>
         <label class="form-label"><span>Username</span></label>
         <input type="text" name="username" required/>

@@ -26,18 +26,18 @@ include "./html/header.html";
 
         <label for="city"><span>City</span></label>
         <input type="text" name="city" />
-        <label for="address">Address</label>
+        <label for="address"><span>Address</span></label>
         <input type="text" name="address" />
-        <label for="floor">Floor</label>
+        <label for="floor"><span>Floor</span></label>
         <input type="text" name="floor" />
-        <label for="upload">Photos</label>
+        <label for="upload"><span>Photos</span></label>
         <?php
         include "./upload.php";
         echo $message ?? null; ?>
         <input type="file" name="upload" />
-        <label for="description">Description</label>
+        <label for="description"><span>Description</span></label>
         <input type="text" name="description" />
-        <label for="perks[]">Perks</label>
+        <label for="perks[]"><span>Perks</span></label>
         <div class="perks">
 
             <input type="checkbox" name="perks[]" value="air_conditioner" />Air Conditioner
@@ -46,9 +46,9 @@ include "./html/header.html";
             <input type="checkbox" name="perks[]" value="furnished" />Furnished
             <input type="checkbox" name="perks[]" value="bars" />Bars
         </div>
-        <label for="price">Price</label>
+        <label for="price"><span>Price</span></label>
         <input type="number" name="price" />
-        <label for="rooms">Rooms</label>
+        <label for="rooms"><span>Rooms</span></label>
         <input type="number" name="rooms" min=1 />
         <button type="submit" name="create" class="form-btn">Create</button>
     </form>

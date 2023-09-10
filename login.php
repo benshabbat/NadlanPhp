@@ -14,13 +14,13 @@ include "./requests.php"
 </head>
 
 <body>
-    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <h2>Login</h2>
-        <label>Username</label><br>
-        <input type="text" name="username" required/><br>
-        <label>Password</label><br>
-        <input type="password" name="password" required/><br>
-        <button type="submit" name="login">Login</button>
+    <form class="form"  action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+        <h2 class="header">Login</h2>
+        <label class="form-label"><span>Username</span></label>
+        <input type="text" name="username" required/>
+        <label><span>Password</span></label>
+        <input type="password" name="password" required/>
+        <button class="form-btn" type="submit" name="login">Login</button>
     </form>
 
 </body>

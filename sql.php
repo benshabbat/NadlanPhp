@@ -1,7 +1,7 @@
 <?php
 function sql_register($username,$email,$phone,$hash)
 {
-    include "./database.php";
+    include "./config/database.php";
     $sql = "INSERT INTO users (username, email, phone, password) VALUES ('$username', '$email','$phone', ' $hash')";
 
     try {
@@ -16,7 +16,7 @@ function sql_register($username,$email,$phone,$hash)
 <?php
 function sql_login($username,$password)
 {
-    include "./database.php";
+    include "./config/database.php";
     $sql = "INSERT INTO users (username, password) VALUES ('$username', ' $password')";
 
     try {

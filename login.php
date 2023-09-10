@@ -1,5 +1,5 @@
 <?php
-include "./html/header.html";
+include "./inc/header.php";
 include "./requests.php"
 ?>
 

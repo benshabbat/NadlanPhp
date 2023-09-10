@@ -1,5 +1,5 @@
 <?php
-include "./html/header.html";
+include "./inc/header.php";
 include "./requests.php";
 req_register();
 ?>
@@ -19,7 +19,7 @@ req_register();
     <form class="form"  action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h2 class="header">Register</h2>
         <label class="form-label"><span>Username</span></label>
-        <input type="text" name="username" required/>
+        <input type="text" name="username"  required/>
         <label class="form-label"><span>Email</span></label>
         <input type="email" name="email" required/>
         <label class="form-label"><span>Phone</span></label>

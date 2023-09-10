@@ -13,38 +13,44 @@ include "./html/header.html";
 
 <body>
 
-    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" enctype="multipart/form-data">
-        <h2>Create Home</h2>
-        <label for="property_type">Property Type</label><br>
-        For Sale
-        <input type="radio" name="property_type" value="sale" />
-        For Rent
-        <input type="radio" name="property_type" value="rent" />
-        <br>
-        <label for="city">City</label><br>
-        <input type="text" name="city" /><br>
-        <label for="address">Address</label><br>
-        <input type="text" name="address" /><br>
-        <label for="floor">Floor</label><br>
-        <input type="text" name="floor" /><br>
-        <label for="upload">Photos</label><br>
+    <form class="form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" enctype="multipart/form-data">
+        <h2 class="header">Create Home</h2>
+        <label for="property_type" class="form-label"><span>Property Type</span></label>
+        <div class="property-type">
+
+            For Sale
+            <input type="radio" name="property_type" value="sale" />
+            For Rent
+            <input type="radio" name="property_type" value="rent" />
+        </div>
+
+        <label for="city"><span>City</span></label>
+        <input type="text" name="city" />
+        <label for="address">Address</label>
+        <input type="text" name="address" />
+        <label for="floor">Floor</label>
+        <input type="text" name="floor" />
+        <label for="upload">Photos</label>
         <?php
         include "./upload.php";
         echo $message ?? null; ?>
-        <input type="file" name="upload" /><br>
-        <label for="description">Description</label><br>
-        <input type="text" name="description" /><br>
-        <label for="perks[]">Perks</label><br>
-        <input type="checkbox" name="perks[]" value="air_conditioner" />Air Conditioner<br>
-        <input type="checkbox" name="perks[]" value="elevator" />Elevator<br>
-        <input type="checkbox" name="perks[]" value="renovated" />Renovated<br>
-        <input type="checkbox" name="perks[]" value="furnished" />Furnished<br>
-        <input type="checkbox" name="perks[]" value="bars" />Bars<br>
-        <label for="price">Price</label><br>
-        <input type="number" name="price" /><br>
-        <label for="rooms">Rooms</label><br>
-        <input type="number" name="rooms" min=1 /><br>
-        <button type="submit" name="create">Create</button>
+        <input type="file" name="upload" />
+        <label for="description">Description</label>
+        <input type="text" name="description" />
+        <label for="perks[]">Perks</label>
+        <div class="perks">
+
+            <input type="checkbox" name="perks[]" value="air_conditioner" />Air Conditioner
+            <input type="checkbox" name="perks[]" value="elevator" />Elevator
+            <input type="checkbox" name="perks[]" value="renovated" />Renovated
+            <input type="checkbox" name="perks[]" value="furnished" />Furnished
+            <input type="checkbox" name="perks[]" value="bars" />Bars
+        </div>
+        <label for="price">Price</label>
+        <input type="number" name="price" />
+        <label for="rooms">Rooms</label>
+        <input type="number" name="rooms" min=1 />
+        <button type="submit" name="create" class="form-btn">Create</button>
     </form>
 
 </body>

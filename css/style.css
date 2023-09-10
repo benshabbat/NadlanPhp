@@ -88,10 +88,11 @@ a:link {
 }
 .form-btn {
   background-color: rgb(142, 154, 222);
-  width: 120px;
-  height: 60px;
+  width: 80px;
+  height: 30px;
   border-radius: 20px;
   margin: auto;
+  margin-top: 4px;
 }
 
 .form-btn:hover {

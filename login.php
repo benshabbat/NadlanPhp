@@ -20,6 +20,7 @@ include "./requests.php"
         <input type="text" name="username" required/>
         <label><span>Password</span></label>
         <input type="password" name="password" required/>
+        <a href="login.php">register</a>
         <button class="form-btn" type="submit" name="login">Login</button>
     </form>
 

@@ -2,6 +2,7 @@
 include "./inc/header.php";
 include "./requests.php";
 req_register();
+$usernameErr = $emailErr = $phoneErr = $passwordErr = $confirm_passwordErr = "";
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,9 @@ req_register();
 
     <form class="form"  action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h2 class="header">Register</h2>
-        <label class="form-label"><span>Username</span></label>
+        <label class="form-label"><span>Username
+        <?php echo $usernameErr ?>
+        </span></label>
         <input type="text" name="username"  required/>
         <label class="form-label"><span>Email</span></label>
         <input type="email" name="email" required/>

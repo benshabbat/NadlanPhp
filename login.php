@@ -19,7 +19,11 @@ include "./requests.php"
                     <input type="password" name="password" required />
                     <label>Password</label>
                 </div>
-                <a href="register.php">register</a>
+                <div class="register-login">
+                    <p>Don't have an Account?
+                        <a href="register.php" class="register-link">Register</a>
+                    </p>
+                </div>
                 <button class="form-btn" type="submit" name="login">Login</button>
             </form>
         </div>

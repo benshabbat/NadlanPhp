@@ -16,6 +16,8 @@
       <i class='bx bx-menu'></i>
     </label>
     <nav class="navbar">
+      <a href="login.php">My Profile</a>
+      <a href="login.php">Houses</a>
       <a href="login.php">Login</a>
     </nav>
   </header>

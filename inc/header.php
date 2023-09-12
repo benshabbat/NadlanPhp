@@ -7,11 +7,11 @@
     <title>Nadlan</title>
   </head>
   <body>
-    <header class="main-header">
-      <div class="navbar">
-        <a class="logo" href="index.php">Logo</a>
+    <header class="header">
+      <a class="logo" href="index.php">Logo</a>
+      <nav class="navbar">
         <a href="login.php">Login</a>
-      </div>
+      </nav>
     </header>
   </body>
 </html>

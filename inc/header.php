@@ -12,13 +12,15 @@
 <body>
   <header class="header">
     <a class="logo" href="index.php">Logo</a>
-    <label for="" class="icons">
-      <i class='bx bx-menu'></i>
+    <input type="checkbox" id="check"/>
+    <label for="check" class="icons">
+      <i class='bx bx-menu' id="menu-icon"></i>
+      <i class='bx bx-x' id="close-icon"></i>
     </label>
     <nav class="navbar">
       <a href="login.php">My Profile</a>
       <a href="login.php">Houses</a>
-      <a href="login.php">Login</a>
+      <button class="btn-login">Login</button>
     </nav>
   </header>
 </body>

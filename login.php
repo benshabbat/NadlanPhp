@@ -5,15 +5,25 @@ include "./requests.php"
 
 
 <body>
-    <form class="form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <h2>Login</h2>
-        <label class="form-label"><span>Username</span></label>
-        <input type="text" name="username" required/>
-        <label><span>Password</span></label>
-        <input type="password" name="password" required/>
-        <a href="login.php">register</a>
-        <button class="form-btn" type="submit" name="login">Login</button>
-    </form>
+    <div class="wrapper">
+        <div class="form-box login">
+            <h2 class=form-header>Login</h2>
+            <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="text" name="username" required />
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="password" name="password" required />
+                    <label>Password</label>
+                </div>
+                <a href="register.php">register</a>
+                <button class="form-btn" type="submit" name="login">Login</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 

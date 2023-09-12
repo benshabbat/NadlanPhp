@@ -18,7 +18,7 @@ $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirm_passwordErr = "";
 <body>
 
     <form class="form"  action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <h2 class="header">Register</h2>
+        <h2 class="form-header">Register</h2>
         <label class="form-label"><span>Username
         <?php echo $usernameErr ?>
         </span></label>

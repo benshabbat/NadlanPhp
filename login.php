@@ -6,7 +6,7 @@ include "./requests.php"
 
 <body>
     <div class="wrapper">
-        <span class="icon-close"><i class='bx bx-x'></i></span>
+        <a class="icon-close" href="index.php"> <i class='bx bx-x'></i></a>
         <div class="form-box login">
             <h2>Login</h2>
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">

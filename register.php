@@ -17,7 +17,7 @@ $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirm_passwordErr = "";
 
 <body>
     <div class="wrapper">
-        <span class="icon-close"><i class='bx bx-x'></i></span>
+        <a class="icon-close" href="index.php"> <i class='bx bx-x'></i></a>
         <div class="form-box login">
             <h2>Register</h2>
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
@@ -48,7 +48,7 @@ $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirm_passwordErr = "";
                 </div>
                 <button class="form-btn" type="submit" name="register">Register</button>
                 <div class="login-register">
-                    <p>Do you have an Account?
+                    <p>Already have an Account?
                         <a href="login.php" class="register-link"> Login</a>
                     </p>
                 </div>

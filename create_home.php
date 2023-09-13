@@ -34,7 +34,7 @@ include "./inc/header.php";
         <?php
         include "./upload.php";
         echo $message ?? null; ?>
-        <input type="file" name="upload" />
+        <input type="file" name="upload[]" multiple/>
         <label for="description"><span>Description</span></label>
         <input type="text" name="description" />
         <label for="perks[]"><span>Perks</span></label>
@@ -66,7 +66,7 @@ if (isset($_POST['create'])) {
     $description =  filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS);
     $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_INT);
     $rooms = filter_input(INPUT_POST, "rooms", FILTER_SANITIZE_NUMBER_INT);
-    $perks = $_POST['perks'];
+    $perks = filter_input(INPUT_POST, "perks", FILTER_SANITIZE_SPECIAL_CHARS);
     $perks = implode(',', $perks);
     echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms;
 }

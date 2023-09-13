@@ -3,7 +3,6 @@ include "./inc/header.php";
 include "./requests.php"
 ?>
 
-
 <body>
     <div class="wrapper">
         <a class="icon-close" href="index.php"> <i class='bx bx-x'></i></a>

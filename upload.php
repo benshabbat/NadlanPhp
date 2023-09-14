@@ -14,12 +14,12 @@
       $file_name = $_FILES['upload']['name'][$i];
       $file_size = $_FILES['upload']['size'][$i];
       $file_tmp = $_FILES['upload']['tmp_name'][$i];
-      $target_dir = "uploads/${file_name}";
-  
+      
       // Get file extension
       $file_ext = explode('.', $file_name);
       $file_ext = strtolower(end($file_ext));
       $new_image_name =uniqid() . '.' . $file_ext;
+      $target_dir = "images/" . $new_image_name;
   
       // Validate file type/extension
       if(in_array($file_ext, $allowed_ext)) {

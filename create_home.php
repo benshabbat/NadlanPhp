@@ -45,11 +45,16 @@ include "./inc/header.php";
             <input type="checkbox" name="perks[]" value="renovated" />Renovated
             <input type="checkbox" name="perks[]" value="furnished" />Furnished
             <input type="checkbox" name="perks[]" value="bars" />Bars
+            <input type="checkbox" name="perks[]" value="parking" />Parking
+            <input type="checkbox" name="perks[]" value="warehouse" />Warehouse
+            <input type="checkbox" name="perks[]" value="dimension" />Dimension
         </div>
         <label for="price"><span>Price</span></label>
         <input type="number" name="price" />
         <label for="rooms"><span>Rooms</span></label>
         <input type="number" name="rooms" min=1 />
+        <label for="sqm"><span>Rooms</span></label>
+        <input type="number" name="sqm" min=1 />
         <button type="submit" name="create" class="form-btn">Create</button>
     </form>
 
@@ -66,6 +71,7 @@ if (isset($_POST['create'])) {
     $description =  filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS);
     $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_INT);
     $rooms = filter_input(INPUT_POST, "rooms", FILTER_SANITIZE_NUMBER_INT);
+    $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
     $perks = filter_input(INPUT_POST, "perks", FILTER_SANITIZE_SPECIAL_CHARS);
     $perks = implode(',', $perks);
     echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms;

@@ -74,6 +74,6 @@ if (isset($_POST['create'])) {
     $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
     $perks = filter_input(INPUT_POST, "perks", FILTER_SANITIZE_SPECIAL_CHARS);
     $perks = implode(',', $perks);
-    echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms;
+    echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm;
 }
 ?>

@@ -1,3 +1,8 @@
+<?php
+include "./function.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,16 +17,19 @@
 <body>
   <header class="header">
     <a class="logo" href="index.php">Logo</a>
-    <input type="checkbox" id="check"/>
+    <input type="checkbox" id="check" />
     <label for="check" class="icons">
       <i class='bx bx-menu' id="menu-icon"></i>
       <i class='bx bx-x' id="close-icon"></i>
     </label>
-    <nav class="navbar">
+    <?php
+    nav();
+    ?>
+    <!-- <nav class="navbar">
       <a href="login.php">My Profile</a>
       <a href="login.php">Houses</a>
       <button class="btn-login">Login</button>
-    </nav>
+    </nav> -->
   </header>
 </body>
 

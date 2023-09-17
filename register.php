@@ -13,27 +13,22 @@ $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirm_passwordErr = "";
             <h2>Register</h2>
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="input-box">
-                    <span class="icon"><i class='bx bx-user'></i></span>
                     <input type="text" name="username" required />
                     <label>Username</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class='bx bx-user'></i></span>
                     <input type="email" name="email" required />
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class='bx bx-key'></i></span>
                     <input type="phone" name="phone" required />
                     <label>Phone</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class='bx bx-key'></i></span>
                     <input type="password" name="password" required />
                     <label>Password</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class='bx bx-key'></i></span>
                     <input type="confirm_password" name="confirm_password" required />
                     <label>Confirm Password</label>
                 </div>

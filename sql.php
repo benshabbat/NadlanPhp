@@ -20,7 +20,7 @@ function sql_register($username,$email,$phone,$hash)
 <?php
 function sql_login($username,$password)
 {
-    include "./database.php";
+    include "./config/database.php";
     $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
     try {
         mysqli_query($conn, $sql);

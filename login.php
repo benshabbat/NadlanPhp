@@ -10,12 +10,10 @@ include "./requests.php"
             <h2>Login</h2>
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="input-box">
-                    <span class="icon"><i class='bx bx-user'></i></span>
                     <input type="text" name="username" required />
                     <label>Username</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class='bx bx-key'></i></span>
                     <input type="password" name="password" required />
                     <label>Password</label>
                 </div>

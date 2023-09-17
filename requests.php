@@ -39,6 +39,19 @@ function req_login()
 
 function req_create_home()
 {
+    if (isset($_POST['create'])) {
+        $property_type = $_POST['property_type'];
+        $city = filter_input(INPUT_POST, "city", FILTER_SANITIZE_SPECIAL_CHARS);
+        $address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
+        $floor = filter_input(INPUT_POST, "address", FILTER_SANITIZE_NUMBER_INT);
+        $description =  filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS);
+        $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_INT);
+        $rooms = filter_input(INPUT_POST, "rooms", FILTER_SANITIZE_NUMBER_INT);
+        $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
+        $perks = filter_input(INPUT_POST, "perks", FILTER_SANITIZE_SPECIAL_CHARS);
+        $perks = implode(',', $perks);
+        echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm;
+    }
 }
 
 function get_home()

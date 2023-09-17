@@ -37,12 +37,9 @@
 {
 ?>
     <nav class="navbar">
-        <a href="profile.php" class="aG">דף הבית</a>
-        <a href="about_car.php">פרטי רכב</a>
-        <a href="request_service.php">בקשת שירות</a>
-        <a href="message_DB.php" class="aB">מאגר הודעות</a>
-        <a href="history_service.php" class="aB">היסטוריית טיפולים</a>
-        <a href="login.php?logout='1'" class="aR">התנתק</a>
+        <a href="login.php?logout='1'" >התנתק</a>
+        <a href="history_service.php" >כל הדירות</a>
+        <a href="profile.php" >הפרופיל שלי</a>
     </nav>
 <?php
 } ?>
@@ -51,9 +48,8 @@
 {
 ?>
     <nav class="navbar">
-        <a href="contact.php">יצירת קשר</a>
-        <a href="about.php">עלינו</a>
         <a href="login.php">התחבר</a>
+        <a href="index.php">דירות</a>
     </nav>
 <?php
 } ?>

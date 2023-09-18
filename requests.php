@@ -1,5 +1,6 @@
 <?php
 include "./sql.php";
+
 function req_register()
 {
     $username = $email = $phone = $password = $confirm_password = $hash = "";
@@ -39,6 +40,7 @@ function req_login()
 
 function req_create_home()
 {
+    include "./upload.php";
     if (isset($_POST['create'])) {
         $property_type = $_POST['property_type'];
         $city = filter_input(INPUT_POST, "city", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -48,9 +50,9 @@ function req_create_home()
         $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_INT);
         $rooms = filter_input(INPUT_POST, "rooms", FILTER_SANITIZE_NUMBER_INT);
         $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
-        $perks = filter_input(INPUT_POST, "perks", FILTER_SANITIZE_SPECIAL_CHARS);
+        $perks = $_POST['perks'];
         $perks = implode(',', $perks);
-        echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm;
+        echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm ,$files_array;
     }
 }
 

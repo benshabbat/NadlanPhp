@@ -1,6 +1,7 @@
 <?php
 include "./inc/header.php";
-include "./requests.php"
+include "./requests.php";
+req_create_home();
 ?>
 
 <body>
@@ -83,6 +84,3 @@ include "./requests.php"
 
 </html>
 
-<?php
-req_create_home()
-?>

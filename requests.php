@@ -52,7 +52,7 @@ function req_create_home()
         $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
         $perks = $_POST['perks'];
         $perks = implode(',', $perks);
-        echo $perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm ,$files_array;
+        sql_create_homes($perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm ,$files_array);
     }
 }
 

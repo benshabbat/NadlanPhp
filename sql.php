@@ -31,7 +31,20 @@ function sql_login($username,$password)
     mysqli_close($conn);
 }
 ?>
-
+<?php
+function sql_create_homes($perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm ,$files_array){
+    include "./config/database.php";
+    $sql = "INSERT INTO houses (property_type,city,address, floor, description,price,rooms, sqm, perks, images)
+     VALUES ('$property_type', '$city', '$address','$floor','$description', '$price',  '$rooms','$sqm' ,'$perks', '$files_array')";
+    try {
+        mysqli_query($conn, $sql);
+        echo "created successfully";
+    } catch (mysqli_sql_exception) {
+        echo "get failed";
+    }
+    mysqli_close($conn);
+}
+?>
 <?php
 function sql_get_homes(){
     include "./config/database.php";

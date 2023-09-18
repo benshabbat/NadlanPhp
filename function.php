@@ -48,7 +48,7 @@
 {
 ?>
     <nav class="navbar">
-        <a href="login.php">התחבר</a>
+        <a href="login.php">התחבר/הירשם</a>
         <a href="index.php">דירות</a>
     </nav>
 <?php

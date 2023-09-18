@@ -17,9 +17,9 @@ $users = get_home();
     <div class="card-body text-center">
       <?php echo $item['username']; ?>
       <div class="text-secondary mt-2">By <?php echo $item['username']; ?> on <?php echo date_format(
-                  date_create($item['reg_date']),
-                  'g:ia \o\n l jS F Y'
-                ); ?></div>
+                                                                                date_create($item['reg_date']),
+                                                                                'g:ia \o\n l jS F Y'
+                                                                              ); ?></div>
     </div>
   </div>
 <?php endforeach; ?>

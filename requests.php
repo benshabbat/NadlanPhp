@@ -38,10 +38,23 @@ function req_login()
     }
 }
 
+
 function req_create_home()
 {
+    include "./config/database.php";
+    $query=" select * from users "; 
+    $result=mysqli_query($conn, $query); 
+    while($rows=mysqli_fetch_array($result)) // למלא נתונים אוטמטיים על המשתמש שמחובר לאתר 
+    {
+        if($rows['username']==$_SESSION['username']) 
+        {
+            $username =$rows['username'];
+        }
+            
+    }
     include "./upload.php";
     if (isset($_POST['create'])) {
+        // $username = $_SESSION['username'];
         $property_type = $_POST['property_type'];
         $city = filter_input(INPUT_POST, "city", FILTER_SANITIZE_SPECIAL_CHARS);
         $address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -52,7 +65,7 @@ function req_create_home()
         $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
         $perks = $_POST['perks'];
         $perks = implode(',', $perks);
-        sql_create_homes($perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm ,$files_array);
+        sql_create_homes($username,$perks,  $property_type, $city, $address, $floor, $description, $price, $rooms,$sqm ,$files_array);
     }
 }
 

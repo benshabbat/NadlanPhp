@@ -1,6 +1,7 @@
 <?php
-include "./function.php";
-
+include('function.php'); 
+session_start(); 
+logout();
 ?>
 
 <!DOCTYPE html>

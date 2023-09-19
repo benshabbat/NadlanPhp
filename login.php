@@ -17,7 +17,7 @@ include "./config/app.php";
                     <input type="password" name="password" value="" autocomplete="off" required />
                     <label>Password</label>
                 </div>
-                <button class="form-btn" type="submit" name="login">Login</button>
+                <button class="form-btn" type="submit" name="login_btn">Login</button>
                 <div class="login-register">
                     <p>Don't have an Account?
                         <a href="register.php" class="register-link">Register</a>

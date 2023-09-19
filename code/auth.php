@@ -13,9 +13,10 @@ if (isset($_POST['register_btn'])) {
 
     if (strcmp($password, $confirm_password) == 0) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $result_user = $register->isUserExist($email);
+        $register->isEmailExist($email)?redirect("Already Email is Exist","register.php"):false;
+        $result_user = $register->isUserExist($username);
         if($result_user){
-            redirect("Already Email is Exist","register.php");
+            redirect("Already User is Exist","register.php");
         }else{
             $register_query= $register->registration($username, $email, $phone, $hash);
             if($register_query){
@@ -27,7 +28,7 @@ if (isset($_POST['register_btn'])) {
         }
     }
     else{
-        redirect("the password dosen't match","register.php");
+        redirect("The password dosen't match","register.php");
     }
 
 }

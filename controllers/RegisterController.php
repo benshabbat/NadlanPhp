@@ -18,7 +18,7 @@ class RegisterController
     }
 
     public function isUserExist($username){
-        $checkUser = "SELECT email FROM users WHERE username= '$username' LIMIT 1 ";
+        $checkUser = "SELECT username FROM users WHERE username= '$username' LIMIT 1 ";
         $result = $this->conn->query($checkUser);
         if($result->num_rows > 0){
             return true;

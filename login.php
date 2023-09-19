@@ -8,7 +8,7 @@ include "./code/auth.php";
     <div class="wrapper">
         <a class="icon-close" href="index.php"> <i class='bx bx-x'></i></a>
         <div class="form-box login">
-        <?php include "./message.php"?>
+            <?php include "./message.php" ?>
             <h2>Login</h2>
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="input-box">
@@ -32,7 +32,3 @@ include "./code/auth.php";
 </body>
 
 </html>
-<?php
-// req_login()
-
-?>

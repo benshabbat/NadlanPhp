@@ -6,8 +6,13 @@ if (isset($_POST['login_btn'])) {
     $auth = new LoginController;
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    sql_login($username, $password);
-    header("location: /ProjectPhp/index.php");
+    // $password = md5($password);
+    $checkLogin = $auth->userLogin($username, $password);
+    if ($checkLogin) {
+        redirect("Logged in Succesfully", "index.php");
+    } else {
+        redirect("Invalid Username Or Password", "login.php");
+    }
 }
 
 if (isset($_POST['register_btn'])) {
@@ -20,23 +25,21 @@ if (isset($_POST['register_btn'])) {
     $confirm_password = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);
 
     if (strcmp($password, $confirm_password) == 0) {
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        $register->isEmailExist($email)?redirect("Already Email is Exist","register.php"):false;
+        // $hash = password_hash($password, PASSWORD_DEFAULT);
+        // $hash = md5($password, PASSWORD_DEFAULT);
+        $register->isEmailExist($email) ? redirect("Already Email is Exist", "register.php") : false;
         $result_user = $register->isUserExist($username);
-        if($result_user){
-            redirect("Already User is Exist","register.php");
-        }else{
-            $register_query= $register->registration($username, $email, $phone, $hash);
-            if($register_query){
-                redirect("Register Succesfully","login.php");
-            }
-            else{
-                redirect("Register Faild","register.php");
+        if ($result_user) {
+            redirect("Already User is Exist", "register.php");
+        } else {
+            $register_query = $register->registration($username, $email, $phone, $password);
+            if ($register_query) {
+                redirect("Register Succesfully", "login.php");
+            } else {
+                redirect("Register Faild", "register.php");
             }
         }
+    } else {
+        redirect("The password dosen't match", "register.php");
     }
-    else{
-        redirect("The password dosen't match","register.php");
-    }
-
 }

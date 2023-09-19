@@ -1,7 +1,5 @@
 <?php
-include "./config/app.php";
 include_once "./controllers/RegisterController.php";
-
 
 $username = $email = $phone = $password = $confirm_password = $hash = "";
 if (isset($_POST['register_btn'])) {
@@ -13,6 +11,9 @@ if (isset($_POST['register_btn'])) {
 
     if (strcmp($password, $confirm_password) == 0) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
+    }
+    else{
+        redirect("the password dosen't match","register.php");
     }
 
     $register = new RegisterController;

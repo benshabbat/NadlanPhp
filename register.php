@@ -32,7 +32,7 @@ $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirm_passwordErr = "";
                     <input type="confirm_password" name="confirm_password" required />
                     <label>Confirm Password</label>
                 </div>
-                <button class="form-btn" type="submit" name="register">Register</button>
+                <button class="form-btn" type="submit" name="register_btn">Register</button>
                 <div class="login-register">
                     <p>Already have an Account?
                         <a href="login.php" class="register-link"> Login</a>

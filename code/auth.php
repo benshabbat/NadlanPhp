@@ -1,7 +1,15 @@
 <?php
 include_once "./controllers/RegisterController.php";
+include_once "./controllers/LoginController.php";
 
-$username = $email = $phone = $password = $confirm_password = $hash = "";
+if (isset($_POST['login_btn'])) {
+    $auth = new LoginController;
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+    sql_login($username, $password);
+    header("location: /ProjectPhp/index.php");
+}
+
 if (isset($_POST['register_btn'])) {
     $register = new RegisterController;
 

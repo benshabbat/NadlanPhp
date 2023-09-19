@@ -1,12 +1,14 @@
 <?php
 include "./inc/header.php";
 include "./config/app.php";
+include "./code/auth.php";
 ?>
 
 <body>
     <div class="wrapper">
         <a class="icon-close" href="index.php"> <i class='bx bx-x'></i></a>
         <div class="form-box login">
+        <?php include "./message.php"?>
             <h2>Login</h2>
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="input-box">

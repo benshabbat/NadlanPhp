@@ -1,6 +1,7 @@
 <?php
 include "./inc/header.php";
-include "./requests.php"
+// include "./requests.php";
+include("./config/app.php");
 ?>
 
 <body>
@@ -31,6 +32,6 @@ include "./requests.php"
 
 </html>
 <?php
-req_login()
+// req_login()
 
 ?>

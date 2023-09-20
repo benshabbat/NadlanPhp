@@ -1,12 +1,13 @@
 <?php
 include_once "./controllers/RegisterController.php";
 include_once "./controllers/LoginController.php";
+$auth = new LoginController;
 
 if (isset($_POST['login_btn'])) {
-    $auth = new LoginController;
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    // $password = md5($password);
+    $password = md5($password);
+
     $checkLogin = $auth->userLogin($username, $password);
     if ($checkLogin) {
         redirect("Logged in Succesfully", "index.php");
@@ -23,9 +24,12 @@ if (isset($_POST['register_btn'])) {
     $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
     $confirm_password = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);
-
+    $options = [
+        'cost' => 12,
+    ];
     if (strcmp($password, $confirm_password) == 0) {
-        // $hash = password_hash($password, PASSWORD_DEFAULT);
+        $password = md5($password);
+        // $hash = password_hash($password, PASSWORD_DEFAULT,$options);
         // $hash = md5($password, PASSWORD_DEFAULT);
         $register->isEmailExist($email) ? redirect("Already Email is Exist", "register.php") : false;
         $result_user = $register->isUserExist($username);

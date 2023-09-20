@@ -7,8 +7,8 @@ define('DB_NAME', 'nadlandb');
 include_once "./config/DatabaseConnection.php";
 $db = new DatabaseConnection;
 
-// function validateInput($dbconn,$input){
-//     return mysqli_real_escape_string($dbconn,$input);}
+function validateInput($dbconn,$input){
+    return mysqli_real_escape_string($dbconn,$input);}
 
 function redirect($message,$page){
 

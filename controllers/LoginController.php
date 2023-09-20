@@ -11,18 +11,28 @@ class LoginController
         $this->conn = $db->conn;
     }
 
-    public function userLogin($username, $password)
+    public function userLogin($username, string $password)
     {
-        $login_query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-        $result = $this->conn->query($login_query);
-        if ($result->num_rows > 0) {
-            $data = $result->fetch_assoc();
-            $this->userAuth($data);
+        $options = [
+            'cost' => 12,
+        ];
+        $new_hash=password_hash($password,PASSWORD_DEFAULT);
+        $login_query = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
+        $result = mysqli_query($this->conn, $login_query);
+        $user = $result->fetch_assoc();
+        $rows = mysqli_num_rows($result);
+        var_dump($user);
+
+        if ($user) {
+
+            $this->userAuth($user);
             return true;
-        } else {
+        }
+         else {
             return false;
         }
     }
+
 
     private function userAuth($data)
     {

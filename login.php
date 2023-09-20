@@ -16,7 +16,7 @@ include "./code/auth.php";
                     <label>Username</label>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" value="" autocomplete="off" required />
+                    <input type="password" name="password" value="" autocomplete="off"  required />
                     <label>Password</label>
                 </div>
                 <button class="form-btn" type="submit" name="login_btn">Login</button>

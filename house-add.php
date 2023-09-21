@@ -1,4 +1,6 @@
 <?php
+include_once "./controllers/AuthController.php";
+$userDetails = $authenticated->authUserDetail();
 include "./inc/header.php";
 ?>
 

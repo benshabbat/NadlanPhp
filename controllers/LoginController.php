@@ -13,10 +13,10 @@ class LoginController
 
     public function userLogin($username, string $password)
     {
-        $options = [
-            'cost' => 12,
-        ];
-        $new_hash = password_hash($password, PASSWORD_DEFAULT);
+        // $options = [
+        //     'cost' => 12,
+        // ];
+        // $new_hash = password_hash($password, PASSWORD_DEFAULT);
         $login_query = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
         $result = mysqli_query($this->conn, $login_query);
         $user = $result->fetch_assoc();

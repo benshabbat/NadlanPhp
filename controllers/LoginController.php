@@ -16,7 +16,7 @@ class LoginController
         $options = [
             'cost' => 12,
         ];
-        $new_hash=password_hash($password,PASSWORD_DEFAULT);
+        $new_hash = password_hash($password, PASSWORD_DEFAULT);
         $login_query = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
         $result = mysqli_query($this->conn, $login_query);
         $user = $result->fetch_assoc();
@@ -27,8 +27,7 @@ class LoginController
 
             $this->userAuth($user);
             return true;
-        }
-         else {
+        } else {
             return false;
         }
     }
@@ -44,5 +43,26 @@ class LoginController
             "user_phone" => $data["phone"],
 
         ];
+    }
+
+
+    public function isLoggedIn()
+    {
+        if (isset($_SESSION['authenticated'])) {
+            redirect("Already logged in", "index.php");
+        }
+        else {
+            return false;
+        }
+    }
+    public function logout()
+    {
+        if (isset($_SESSION['authenticated'])) {
+            unset($_SESSION['authenticated']);
+            unset($_SESSION['auth_user']);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

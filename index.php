@@ -1,7 +1,7 @@
 <?php
 include "./inc/header.php";
 include "./config/app.php";
-include "./code/auth.php";
+
 ?>
 
 <body>

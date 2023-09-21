@@ -1,7 +1,7 @@
 <?php
 include('function.php'); 
-// session_start(); 
-// logout();
+session_start(); 
+
 
 ?>
 

@@ -2,12 +2,6 @@
 {
 ?>
     <header>
-        <!-- <img src="images/logo.jpg" class="logo"> -->
-        <div class="nameUser">
-            <?php if (isset($_SESSION["username"])) : ?>
-                <p><ins>שלום</ins> <strong> <?php echo $_SESSION['username']; ?></strong></p>
-            <?php endif ?>
-        </div>
         <div class="menu">
             <?php type_nav(); ?>
         </div>
@@ -37,9 +31,13 @@
 {
 ?>
     <nav class="navbar">
-        <a href="login.php?logout='1'" >התנתק</a>
-        <a href="history_service.php" >כל הדירות</a>
-        <a href="profile.php" >הפרופיל שלי</a>
+
+        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+            <button type="submit" name="logout_btn">Logout</button>
+        </form>
+
+        <a href="history_service.php">כל הדירות</a>
+        <a href="profile.php">Hello <?php echo $_SESSION['auth_user']["user_username"]; ?></a>
     </nav>
 <?php
 } ?>
@@ -56,11 +54,12 @@
 
 <?php function type_nav() // type navbar
 {
-    if (!isset($_SESSION['username']))
+    if (!isset($_SESSION['authenticated']))
         login_nav();
-    elseif ("admin" == $_SESSION['username'] and $_SESSION['ID'] == 1) {
-        admin_nav();
-    } elseif (isset($_SESSION['username'])) {
+    // elseif ("admin" == $_SESSION['username'] and $_SESSION['ID'] == 1) {
+    //     admin_nav();
+    // } 
+    elseif (isset($_SESSION['authenticated'])) {
         user_nav();
     }
 } ?>
@@ -81,15 +80,14 @@
         return false;
 } ?>
 
-<?php function logout() // logout method
-{
-    if (isset($_GET['logout'])) {
-        unset($_SESSION['username']);
-        unset($_SESSION['ID']);
-        session_destroy();
-        header('location: login.php');
-    }
-} ?>
+<!-- <?php function logout() // logout method
+        {
+            if (isset($_GET['logout'])) {
+                unset($_SESSION['authenticated']);
+                session_destroy();
+                header('location: login.php');
+            }
+        } ?> -->
 
 <?php function checkSESSION() // check if have session
 {

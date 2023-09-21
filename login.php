@@ -1,7 +1,7 @@
 <?php
-include "./inc/header.php";
 include "./config/app.php";
 $auth->isLoggedIn();
+include "./inc/header.php";
 ?>
 
 <body>
@@ -10,14 +10,14 @@ $auth->isLoggedIn();
         <div class="form-box login">
             <?php include "./message.php" ?>
             <h2>Login</h2>
-            <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+            <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="off">
                 <div class="input-box">
-                    <input type="text" name="username" value="" autocomplete="off" required />
                     <label>Username</label>
+                    <input type="text" name="username" value="" autocomplete="off" required />
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" value="" autocomplete="off"  required />
                     <label>Password</label>
+                    <input type="password" name="password" value="" autocomplete="off"  required />
                 </div>
                 <button class="form-btn" type="submit" name="login_btn">Login</button>
                 <div class="login-register">

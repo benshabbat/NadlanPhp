@@ -4,7 +4,7 @@ include "./config/app.php";
 class AuthController
 {
 
-    public $conn;
+    private $conn;
     public function __construct()
     {
         $db = new DatabaseConnection;
@@ -14,18 +14,20 @@ class AuthController
 
     private function checkIsLoggedIn()
     {
-        if (isset($_SESSION['authenticted'])) {
+        if (!isset($_SESSION['authenticated'])) {
             redirect("you need to login", "login.php");
+            return false;
+        } else {
             return true;
-        } else return false;
+        }
     }
 
     public function authUserDetail()
     {
         $checkAuth = $this->checkIsLoggedIn();
         if ($checkAuth) {
-            $user_id = $_SESSION['authenticted']['user_id'];
-            $getUserData = "SELECT * FROM users WHERE id = '$user_id' limit 1";
+            $user_id = $_SESSION['auth_user']['user_id'];
+            $getUserData = "SELECT * FROM users WHERE id = '$user_id' LIMIT 1";
             $result = mysqli_query($this->conn, $getUserData);
             $user = $result->fetch_assoc();
             if ($user) {
@@ -38,4 +40,4 @@ class AuthController
         }
     }
 }
-$authenticted = new AuthController;
+$authenticated = new AuthController;

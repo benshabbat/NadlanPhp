@@ -1,8 +1,8 @@
 <?php
-include "./inc/header.php";
 include "./config/app.php";
 
 $auth->isLoggedIn();
+include "./inc/header.php";
 ?>
 
 
@@ -14,24 +14,24 @@ $auth->isLoggedIn();
             <h2>Register</h2>
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="input-box">
-                    <input type="text" name="username" value="" autocomplete="off" required />
                     <label>Username</label>
+                    <input type="text" name="username" value="" autocomplete="off" required />
                 </div>
                 <div class="input-box">
-                    <input type="email" name="email" value="" autocomplete="off" required />
                     <label>Email</label>
+                    <input type="email" name="email" value="" autocomplete="off" required />
                 </div>
                 <div class="input-box">
-                    <input type="phone" name="phone" value="" autocomplete="off" required />
                     <label>Phone</label>
+                    <input type="phone" name="phone" value="" autocomplete="off" required />
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" value="" autocomplete="off"  required />
                     <label>Password</label>
+                    <input type="password" name="password" value="" autocomplete="off"  required />
                 </div>
                 <div class="input-box">
-                    <input type="password" name="confirm_password" value="" autocomplete="off" required />
                     <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" value="" autocomplete="off" required />
                 </div>
                 <button class="form-btn" type="submit" name="register_btn">Register</button>
                 <div class="login-register">

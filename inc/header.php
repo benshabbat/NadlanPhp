@@ -1,10 +1,3 @@
-<?php
-include('function.php'); 
-session_start(); 
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,14 +17,23 @@ session_start();
       <i class='bx bx-menu' id="menu-icon"></i>
       <i class='bx bx-x' id="close-icon"></i>
     </label>
-    <?php
-    nav();
-    ?>
-    <!-- <nav class="navbar">
-      <a href="login.php">My Profile</a>
-      <a href="login.php">Houses</a>
-      <button class="btn-login">Login</button>
-    </nav> -->
+
+    <?php if (isset($_SESSION['authenticated'])) : ?>
+      <nav class="navbar">
+        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+          <button type="submit" name="logout_btn">Logout</button>
+        </form>
+        <a href="houses.php">כל הדירות</a>
+        <a href="profile.php">Hello <?php echo $_SESSION['auth_user']["user_username"]; ?></a>
+      </nav>
+    <?php else : ?>
+      <nav class="navbar">
+        <a href="profile.php">My Profile</a>
+        <a href="houses.php">Houses</a>
+        <a href="login.php">Login</a>
+        <!-- <button class="btn-login">Login</button> -->
+      </nav>
+    <?php endif; ?>
   </header>
 </body>
 

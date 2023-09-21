@@ -21,8 +21,8 @@ class LoginController
         $result = mysqli_query($this->conn, $login_query);
         $user = $result->fetch_assoc();
         $rows = mysqli_num_rows($result);
-        var_dump($user);
-
+        // var_dump($user);
+        // exit;
         if ($user) {
 
             $this->userAuth($user);
@@ -50,8 +50,7 @@ class LoginController
     {
         if (isset($_SESSION['authenticated'])) {
             redirect("Already logged in", "index.php");
-        }
-        else {
+        } else {
             return false;
         }
     }

@@ -1,7 +1,7 @@
 <?php
-include "./inc/header.php";
 include "./config/app.php";
 
+include "./inc/header.php";
 ?>
 
 <body>

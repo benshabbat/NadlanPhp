@@ -36,7 +36,7 @@
             <button type="submit" name="logout_btn">Logout</button>
         </form>
 
-        <a href="history_service.php">כל הדירות</a>
+        <a href="houses.php">כל הדירות</a>
         <a href="profile.php">Hello <?php echo $_SESSION['auth_user']["user_username"]; ?></a>
     </nav>
 <?php

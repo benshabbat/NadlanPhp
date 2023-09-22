@@ -1,6 +1,6 @@
 <?php
 include "./config/app.php";
-include_once "./controllers/HouseConroller.php";
+include_once "./controllers/HouseController.php";
 include "./upload.php";
 
 
@@ -17,4 +17,22 @@ if (isset($_POST['house_add_btn'])) {
     $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
     $perks = $_POST['perks'];
     $perks = implode(',', $perks);
+
+
+    $data= [
+        'username' => $username,
+        'property_type'=>$property_type,
+        'city'=>$city,
+        'address'=>$address,
+        'floor'=>$floor,
+        'description'=>$description,
+        'price'=>$price,
+        'rooms'=>$rooms,
+        'sqm'=>$sqm,
+        'images'=>$files_array,
+        'perks'=>$perks,
+
+    ];
+
+    $house = new HouseController;
 }

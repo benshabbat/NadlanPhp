@@ -19,20 +19,21 @@ if (isset($_POST['house_add_btn'])) {
     $perks = implode(',', $perks);
 
 
-    $data= [
+    $inputData = [
         'username' => $username,
-        'property_type'=>$property_type,
-        'city'=>$city,
-        'address'=>$address,
-        'floor'=>$floor,
-        'description'=>$description,
-        'price'=>$price,
-        'rooms'=>$rooms,
-        'sqm'=>$sqm,
-        'images'=>$files_array,
-        'perks'=>$perks,
+        'property_type' => $property_type,
+        'city' => $city,
+        'address' => $address,
+        'floor' => $floor,
+        'description' => $description,
+        'price' => $price,
+        'rooms' => $rooms,
+        'sqm' => $sqm,
+        'images' => $files_array,
+        'perks' => $perks,
 
     ];
 
     $house = new HouseController;
+    $house->create($inputData);
 }

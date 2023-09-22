@@ -29,19 +29,24 @@ include "./inc/header.php";
                     <input type="text" name="address" required />
                 </div>
                 <div class="input-box">
-                    <label>Photos</label>
-                    <?php
-                    include "./upload.php";
-                    echo $message ?? null; ?>
-                    <input type="file" name="upload[]" multiple />
-                </div>
-                <div class="input-box">
                     <label>Floor</label>
                     <input type="number" name="floor" required />
                 </div>
                 <div class="input-box">
                     <label>Description</label>
                     <input type="text" name="description" required />
+                </div>
+                <div class="input-box">
+                    <label>Price</label>
+                    <input type="number" name="price" min=1 />
+                </div>
+                <div class="input-box">
+                    <label>Rooms</label>
+                    <input type="number" name="rooms" min=1 />
+                </div>
+                <div class="input-box">
+                    <label>SQM</label>
+                    <input type="number" name="sqm" min=1 />
                 </div>
                 <div>
                     <label>Perks:</label>
@@ -58,16 +63,11 @@ include "./inc/header.php";
                 </div>
 
                 <div class="input-box">
-                    <label>Price</label>
-                    <input type="number" name="price" min=1 />
-                </div>
-                <div class="input-box">
-                    <label>Rooms</label>
-                    <input type="number" name="rooms" min=1 />
-                </div>
-                <div class="input-box">
-                    <label>SQM</label>
-                    <input type="number" name="sqm" min=1 />
+                    <label>Photos</label>
+                    <?php
+                    include "./upload.php";
+                    echo $message ?? null; ?>
+                    <input type="file" name="upload[]" multiple />
                 </div>
 
                 <button type="submit" name="house_add_btn" class="form-btn">Create</button>

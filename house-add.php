@@ -68,7 +68,7 @@ include "./inc/header.php";
                 <div class="input-box">
                     <label>Photos</label>
                     <?php
-                    include "./upload.php";
+                    include "./inc/upload.php";
                     echo $message ?? null; ?>
                     <input type="file" name="upload[]" multiple />
                 </div>

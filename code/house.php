@@ -14,7 +14,7 @@ if (isset($_POST['house_add_btn'])) {
     $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
     $perks = $_POST['perks'];
     $perks = implode(',', $perks);
-    include "./upload.php";
+    include "./inc/upload.php";
     
 
     $inputData = [
@@ -35,8 +35,7 @@ if (isset($_POST['house_add_btn'])) {
     $house = new HouseController;
     $res=$house->create($inputData);
     echo $res;
-    // var_dump($res);
-    // exit;
+
     if($res){
         redirect("House add Success","house-add.php");
     }

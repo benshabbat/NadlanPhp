@@ -19,7 +19,7 @@
       $file_ext = explode('.', $file_name);
       $file_ext = strtolower(end($file_ext));
       $new_image_name =uniqid() . '.' . $file_ext;
-      $target_dir = "images/" . $new_image_name;
+      $target_dir = "assets/images/houses/" . $new_image_name;
   
       // Validate file type/extension
       if(in_array($file_ext, $allowed_ext)) {

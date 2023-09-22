@@ -26,13 +26,5 @@ class HouseController
         } else {
             return false;
         }
-        // mysqli_close($conn);
-        // $result = $this->conn->query($sql);
-
-        // if ($result) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
     }
 }

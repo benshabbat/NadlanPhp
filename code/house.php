@@ -1,8 +1,6 @@
 <?php
-include "./config/app.php";
+include_once "./controllers/AuthController.php";
 include_once "./controllers/HouseController.php";
-include "./upload.php";
-
 
 
 if (isset($_POST['house_add_btn'])) {
@@ -17,7 +15,8 @@ if (isset($_POST['house_add_btn'])) {
     $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
     $perks = $_POST['perks'];
     $perks = implode(',', $perks);
-
+    include "./upload.php";
+    
 
     $inputData = [
         'username' => $username,
@@ -29,11 +28,20 @@ if (isset($_POST['house_add_btn'])) {
         'price' => $price,
         'rooms' => $rooms,
         'sqm' => $sqm,
-        'images' => $files_array,
         'perks' => $perks,
+        'images' => $files_array,
 
     ];
 
     $house = new HouseController;
-    $house->create($inputData);
+    $res=$house->create($inputData);
+    // var_dump($res);
+    // exit;
+    if($res){
+        redirect("House add Success","house-add.php");
+    }
+    else{
+        redirect("Something went wrong","house-add.php");
+
+    }
 }

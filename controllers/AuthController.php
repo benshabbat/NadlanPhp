@@ -1,5 +1,5 @@
 <?php
-include "./config/app.php";
+// include "./config/app.php";
 
 class AuthController
 {
@@ -40,4 +40,4 @@ class AuthController
         }
     }
 }
-$authenticated = new AuthController;
+

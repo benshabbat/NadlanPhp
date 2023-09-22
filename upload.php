@@ -4,7 +4,7 @@
 
   $allowed_ext = array('png', 'jpg', 'jpeg', 'gif');
 
- if(isset($_POST['create'])) {
+ if(isset($_POST['house_add_btn'])) {
    // Check if file was uploaded
    if(!empty($_FILES['upload']['name'])) {
     $total_files = count($_FILES['upload']['name']);

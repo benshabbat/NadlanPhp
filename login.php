@@ -1,5 +1,6 @@
 <?php
 include "./config/app.php";
+
 $auth->isLoggedIn();
 include "./inc/header.php";
 ?>

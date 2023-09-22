@@ -1,5 +1,4 @@
 <?php
-include_once "./controllers/AuthController.php";
 include_once "./controllers/HouseController.php";
 
 
@@ -35,6 +34,7 @@ if (isset($_POST['house_add_btn'])) {
 
     $house = new HouseController;
     $res=$house->create($inputData);
+    echo $res;
     // var_dump($res);
     // exit;
     if($res){

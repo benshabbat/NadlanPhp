@@ -6,14 +6,14 @@
 
  if(isset($_POST['house_add_btn'])) {
    // Check if file was uploaded
-   if(!empty($_FILES['upload']['name'])) {
-    $total_files = count($_FILES['upload']['name']);
+   if(!empty($_FILES['image']['name'])) {
+    $total_files = count($_FILES['image']['name']);
     $files_array = array();
   
     for($i=0;$i<$total_files;$i++) {
-      $file_name = $_FILES['upload']['name'][$i];
-      $file_size = $_FILES['upload']['size'][$i];
-      $file_tmp = $_FILES['upload']['tmp_name'][$i];
+      $file_name = $_FILES['image']['name'][$i];
+      $file_size = $_FILES['image']['size'][$i];
+      $file_tmp = $_FILES['image']['tmp_name'][$i];
       
       // Get file extension
       $file_ext = explode('.', $file_name);

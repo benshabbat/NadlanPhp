@@ -70,7 +70,7 @@ include "./inc/header.php";
                     <?php
                     include "./inc/upload.php";
                     echo $message ?? null; ?>
-                    <input type="file" name="upload[]" multiple />
+                    <input type="file" name="image[]" multiple />
                 </div>
 
                 <button type="submit" name="house_add_btn" class="form-btn">Create</button>

@@ -33,9 +33,9 @@ class HouseController
         $username = $_SESSION['auth_user']['user_username'];
         $getHouseData = "SELECT * FROM houses";
         $result = mysqli_query($this->conn, $getHouseData);
-        $house = $result->fetch_assoc();
-        if ($house) {
-            return $house;
+        // $house = $result->fetch_assoc();
+        if ($result) {
+            return $result;
         }
     }
 }

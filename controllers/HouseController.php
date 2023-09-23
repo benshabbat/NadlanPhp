@@ -28,12 +28,30 @@ class HouseController
         }
     }
 
-    public function houseDetail()
+    public function houseDetails()
     {
         $username = $_SESSION['auth_user']['user_username'];
         $getHouseData = "SELECT * FROM houses";
         $result = mysqli_query($this->conn, $getHouseData);
         // $house = $result->fetch_assoc();
+        if ($result) {
+            return $result;
+        }
+    }
+    public function houseDetailsById($id)
+    {
+        $getHouseData = "SELECT * FROM houses WHERE id ='$id' LIMIT 1";
+        $result = mysqli_query($this->conn, $getHouseData);
+        $house = $result->fetch_assoc();
+        if ($house) {
+            return $house;
+        }
+    }
+    
+    public function edit($id)
+    {
+        $getHouseData = "SELECT * FROM houses WHERE id ='$id' LIMIT 1";
+        $result = mysqli_query($this->conn, $getHouseData);
         if ($result) {
             return $result;
         }

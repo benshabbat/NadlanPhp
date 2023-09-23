@@ -3,8 +3,7 @@ include "./config/app.php";
 include_once "./controllers/AuthController.php";
 include_once "./controllers/HouseController.php";
 $authenticated = new AuthController;
-$house = new HouseController;
-$houseDetails = $house->houseDetail();
+
 include "./inc/header.php";
 ?>
 

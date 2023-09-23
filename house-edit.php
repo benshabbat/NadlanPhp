@@ -11,6 +11,15 @@ include "./inc/header.php";
 <div class="wrapper">
     <a class="icon-close" href="index.php"> <i class='bx bx-x'></i></a>
     <div class="form-box login">
+        <?php
+        if (isset($_GET['id'])) {
+            $house_id = mysqli_real_escape_string($db->conn,$_GET['id']);
+            $house = new HouseController;
+            $result = $house->edit($house_id);
+            $houseDetails = $house->houseDetailsById($house_id);
+            
+        }
+        ?>
         <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" enctype="multipart/form-data">
             <?php include "./message.php" ?>
             <h2>House Edit</h2>
@@ -25,7 +34,7 @@ include "./inc/header.php";
             </div>
             <div class="input-box">
                 <label>City</label>
-                <input type="text" name="city" required />
+                <input type="text" name="city" value=<?= $houseDetails['city']; ?> required />
             </div>
             <div class="input-box">
                 <label>Address</label>

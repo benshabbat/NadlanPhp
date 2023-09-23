@@ -36,24 +36,24 @@ include "./inc/header.php";
                 </tr>
             </thead>
             <tbody> <?php
-                    $house = new HouseController;
-                    $houseDetails = $house->houseDetail();
-                    if ($houseDetails) {
-                        foreach ($houseDetails as $houseDetail) {
+                    $houses = new HouseController;
+                    $housesDetails = $houses->houseDetails();
+                    if ($housesDetails) {
+                        foreach ($housesDetails as $houseDetails) {
                     ?>
                         <tr>
-                            <td><?= $houseDetail['username']; ?></td>
-                            <td><?= $houseDetail['property_type']; ?></td>
-                            <td><?= $houseDetail['city']; ?></td>
-                            <td><?= $houseDetail['address']; ?></td>
-                            <td><?= $houseDetail['floor']; ?></td>
-                            <td><?= $houseDetail['description']; ?></td>
-                            <td><?= $houseDetail['price']; ?></td>
-                            <td><?= $houseDetail['rooms']; ?></td>
-                            <td><?= $houseDetail['sqm']; ?></td>
-                            <td><?= $houseDetail['perks']; ?></td>
-                            <td><?= $houseDetail['images']; ?></td>
-                            <td><a href="./house-edit/id?=<?= $houseDetail['id']; ?>.php">Edit</a></td>
+                            <td><?= $houseDetails['username']; ?></td>
+                            <td><?= $houseDetails['property_type']; ?></td>
+                            <td><?= $houseDetails['city']; ?></td>
+                            <td><?= $houseDetails['address']; ?></td>
+                            <td><?= $houseDetails['floor']; ?></td>
+                            <td><?= $houseDetails['description']; ?></td>
+                            <td><?= $houseDetails['price']; ?></td>
+                            <td><?= $houseDetails['rooms']; ?></td>
+                            <td><?= $houseDetails['sqm']; ?></td>
+                            <td><?= $houseDetails['perks']; ?></td>
+                            <td><?= $houseDetails['images']; ?></td>
+                            <td><a href="./house-edit.php?id=<?= $houseDetails['id']; ?>">Edit</a></td>
                             <td><a href="">Delete</a></td>
                         </tr>
                 <?php

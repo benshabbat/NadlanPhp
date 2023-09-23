@@ -16,7 +16,7 @@ class HouseController
         $data = "' " . implode("','", $inputData) . " '";
         echo $data;
 
-        
+
         $sql = "INSERT INTO houses (username,property_type,city,address,floor,description,price,rooms,sqm,perks,images)
         VALUES (  $data )";
 
@@ -25,6 +25,17 @@ class HouseController
             return true;
         } else {
             return false;
+        }
+    }
+
+    public function houseDetail()
+    {
+        $username = $_SESSION['auth_user']['user_username'];
+        $getHouseData = "SELECT * FROM houses";
+        $result = mysqli_query($this->conn, $getHouseData);
+        $house = $result->fetch_assoc();
+        if ($house) {
+            return $house;
         }
     }
 }

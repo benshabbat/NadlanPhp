@@ -31,6 +31,8 @@ include "./inc/header.php";
                     <th>sqm</th>
                     <th>perks</th>
                     <th>upload</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody> <?php
@@ -40,17 +42,19 @@ include "./inc/header.php";
                         foreach ($houseDetails as $houseDetail) {
                     ?>
                         <tr>
-                            <td><?php echo $houseDetail['username']; ?></td>
-                            <td><?php echo $houseDetail['property_type']; ?></td>
-                            <td><?php echo $houseDetail['city']; ?></td>
-                            <td><?php echo $houseDetail['address']; ?></td>
-                            <td><?php echo $houseDetail['floor']; ?></td>
-                            <td><?php echo $houseDetail['description']; ?></td>
-                            <td><?php echo $houseDetail['price']; ?></td>
-                            <td><?php echo $houseDetail['rooms']; ?></td>
-                            <td><?php echo $houseDetail['sqm']; ?></td>
-                            <td><?php echo $houseDetail['perks']; ?></td>
-                            <td><?php echo $houseDetail['images']; ?></td>
+                            <td><?= $houseDetail['username']; ?></td>
+                            <td><?= $houseDetail['property_type']; ?></td>
+                            <td><?= $houseDetail['city']; ?></td>
+                            <td><?= $houseDetail['address']; ?></td>
+                            <td><?= $houseDetail['floor']; ?></td>
+                            <td><?= $houseDetail['description']; ?></td>
+                            <td><?= $houseDetail['price']; ?></td>
+                            <td><?= $houseDetail['rooms']; ?></td>
+                            <td><?= $houseDetail['sqm']; ?></td>
+                            <td><?= $houseDetail['perks']; ?></td>
+                            <td><?= $houseDetail['images']; ?></td>
+                            <td><a href="./house-edit/id?=<?= $houseDetail['id']; ?>.php">Edit</a></td>
+                            <td><a href="">Delete</a></td>
                         </tr>
                 <?php
                         }

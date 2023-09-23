@@ -13,7 +13,7 @@ include "./inc/header.php";
     <div class="form-box login">
         <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" enctype="multipart/form-data">
             <?php include "./message.php" ?>
-            <h2>House ADD</h2>
+            <h2>House Edit</h2>
             <div>
                 <label>Property Type:</label>
                 <div class="column">

@@ -26,9 +26,9 @@ include "./inc/header.php";
             <div>
                 <label>Property Type:</label>
                 <div class="column">
-                    <input type="radio" name="property_type" value="sale" />
+                    <input type="radio" name="property_type" value="sale" checked= <?= $houseDetails['property_type']; ?>  />
                     For Sale
-                    <input type="radio" name="property_type" value="rent" />
+                    <input type="radio" name="property_type" value="rent" checked= <?= $houseDetails['property_type']; ?> />
                     For Rent
                 </div>
             </div>
@@ -38,39 +38,39 @@ include "./inc/header.php";
             </div>
             <div class="input-box">
                 <label>Address</label>
-                <input type="text" name="address" required />
+                <input type="text" name="address" value=<?= $houseDetails['address']; ?> required />
             </div>
             <div class="input-box">
                 <label>Floor</label>
-                <input type="number" name="floor" required />
+                <input type="number" name="floor" value=<?= $houseDetails['floor']; ?> required />
             </div>
             <div class="input-box">
                 <label>Description</label>
-                <input type="text" name="description" required />
+                <input type="text" name="description" value=<?= $houseDetails['description']; ?> required />
             </div>
             <div class="input-box">
                 <label>Price</label>
-                <input type="number" name="price" min=1 />
+                <input type="number" name="price" min=1  value=<?= $houseDetails['price']; ?>/>
             </div>
             <div class="input-box">
                 <label>Rooms</label>
-                <input type="number" name="rooms" min=1 />
+                <input type="number" name="rooms" min=1 value=<?= $houseDetails['rooms']; ?> />
             </div>
             <div class="input-box">
                 <label>SQM</label>
-                <input type="number" name="sqm" min=1 />
+                <input type="number" name="sqm" min=1 value=<?= $houseDetails['sqm']; ?>/>
             </div>
             <div>
                 <label>Perks:</label>
                 <div class="column">
-                    <input type="checkbox" name="perks[]" value="air_conditioner" />Air Conditioner
-                    <input type="checkbox" name="perks[]" value="elevator" />Elevator
-                    <input type="checkbox" name="perks[]" value="renovated" />Renovated
-                    <input type="checkbox" name="perks[]" value="furnished" />Furnished
-                    <input type="checkbox" name="perks[]" value="bars" />Bars
-                    <input type="checkbox" name="perks[]" value="parking" />Parking
-                    <input type="checkbox" name="perks[]" value="warehouse" />Warehouse
-                    <input type="checkbox" name="perks[]" value="dimension" />Dimension
+                    <input type="checkbox" name="perks[]" value="air_conditioner" checked= <?= $houseDetails['perks']; ?> />Air Conditioner
+                    <input type="checkbox" name="perks[]" value="elevator" checked= <?= $houseDetails['perks']; ?> />Elevator
+                    <input type="checkbox" name="perks[]" value="renovated" checked= <?= $houseDetails['perks']; ?> />Renovated
+                    <input type="checkbox" name="perks[]" value="furnished" checked= <?= $houseDetails['perks']; ?> />Furnished
+                    <input type="checkbox" name="perks[]" value="bars" checked= <?= $houseDetails['perks']; ?>/>Bars
+                    <input type="checkbox" name="perks[]" value="parking" checked= <?= $houseDetails['perks']; ?>/>Parking
+                    <input type="checkbox" name="perks[]" value="warehouse" checked= <?= $houseDetails['perks']; ?>/>Warehouse
+                    <input type="checkbox" name="perks[]" value="dimension" checked= <?= $houseDetails['perks']; ?>/>Dimension
                 </div>
             </div>
 

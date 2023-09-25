@@ -55,9 +55,12 @@ class HouseController
 
     public function update($inputData, $id)
     {
-        $data = "' " . implode("','", $inputData) . " '";
-        $houseUpdateQuery = "UPDATE houses SET (property_type,city,address,floor,description,price,rooms,sqm,perks,images)
-        VALUES (  $data ) WHERE id = '$id' limit 1";
+
+        $houseUpdateQuery = "UPDATE houses SET property_type='$inputData[property_type]',city='$inputData[city]'
+        ,address='$inputData[address]' ,floor='$inputData[floor]',
+        description='$inputData[description]',price='$inputData[price]',rooms='$inputData[rooms]'
+        ,sqm='$inputData[sqm]',perks='$inputData[perks]',images='$inputData[images]'
+         WHERE id = '$id' limit 1";
         $result = mysqli_query($this->conn, $houseUpdateQuery);
         if ($result) {
             return true;

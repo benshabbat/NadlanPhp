@@ -47,9 +47,22 @@ class HouseController
             return $house;
         }
     }
-    
+
     public function edit($id)
     {
-       return $this->houseDetailsById($id);
+        return $this->houseDetailsById($id);
+    }
+
+    public function update($inputData, $id)
+    {
+        $data = "' " . implode("','", $inputData) . " '";
+        $houseUpdateQuery = "UPDATE houses SET (property_type,city,address,floor,description,price,rooms,sqm,perks,images)
+        VALUES (  $data ) WHERE id = '$id' limit 1";
+        $result = mysqli_query($this->conn, $houseUpdateQuery);
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

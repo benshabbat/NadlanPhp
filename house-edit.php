@@ -23,6 +23,7 @@ include "./inc/header.php";
         <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" enctype="multipart/form-data">
             <?php include "./message.php" ?>
             <h2>House Edit</h2>
+            <input type="hidden" name="id" value="<?=$house_id; ?>" />
             <div>
                 <label>Property Type:</label>
                 <div class="column">

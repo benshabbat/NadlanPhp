@@ -9,11 +9,11 @@ $db = new DatabaseConnection;
 include "./code/auth.php";
 include "./code/house.php";
 
-function validateInput($input)
-{
-    $db = new DatabaseConnection;
-    return mysqli_real_escape_string($db->conn, $input);
-}
+// function validateInput($input)
+// {
+//     $db = new DatabaseConnection;
+//     return mysqli_real_escape_string($db->conn, $input);
+// }
 
 function redirect($message, $page)
 {

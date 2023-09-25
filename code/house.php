@@ -1,11 +1,11 @@
 <?php
 include_once "./controllers/HouseController.php";
-include "./config/app.php";
+// include "./config/app.php";
 
 
 
 if(isset($_POST['house_update_btn'])){
-    $id = validateInput($_POST['house_id']);
+    $id = $_POST['id'];
     $username = $_SESSION['auth_user']["user_username"];
     $property_type = $_POST['property_type'];
     $city = filter_input(INPUT_POST, "city", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -37,7 +37,7 @@ if(isset($_POST['house_update_btn'])){
     $res=$house->update($inputData,$id);
 
     if($res){
-        redirect("House add Success","house-view.php");
+        redirect("House updated Success","house-view.php");
     }
     else{
         redirect("Something went wrong","house-view.php");

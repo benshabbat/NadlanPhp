@@ -54,7 +54,9 @@ include "./inc/header.php";
                             <td><?= $houseDetails['perks']; ?></td>
                             <td><?= $houseDetails['images']; ?></td>
                             <td><a href="./house-edit.php?id=<?= $houseDetails['id']; ?>">Edit</a></td>
-                            <td><a href="">Delete</a></td>
+                            <td><form action="" method="$_POST">
+                                <button type="submit" name="delete_btn" value="<?= $houseDetails['id']; ?>">Delete</button>
+                            </form></td>
                         </tr>
                 <?php
                         }

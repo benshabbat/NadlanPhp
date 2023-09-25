@@ -9,13 +9,16 @@ $db = new DatabaseConnection;
 include "./code/auth.php";
 include "./code/house.php";
 
-// function validateInput($dbconn,$input){
-//     return mysqli_real_escape_string($dbconn,$input);}
+function validateInput($input)
+{
+    $db = new DatabaseConnection;
+    return mysqli_real_escape_string($db->conn, $input);
+}
 
-function redirect($message,$page){
+function redirect($message, $page)
+{
 
     $_SESSION['message'] = $message;
     header("location:$page");
     exit(0);
-
 }

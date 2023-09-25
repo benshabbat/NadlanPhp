@@ -50,10 +50,6 @@ class HouseController
     
     public function edit($id)
     {
-        $getHouseData = "SELECT * FROM houses WHERE id ='$id' LIMIT 1";
-        $result = mysqli_query($this->conn, $getHouseData);
-        if ($result) {
-            return $result;
-        }
+       return $this->houseDetailsById($id);
     }
 }

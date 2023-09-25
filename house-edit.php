@@ -15,8 +15,8 @@ include "./inc/header.php";
         if (isset($_GET['id'])) {
             $house_id = mysqli_real_escape_string($db->conn,$_GET['id']);
             $house = new HouseController;
-            $result = $house->edit($house_id);
-            $houseDetails = $house->houseDetailsById($house_id);
+            $houseDetails = $house->edit($house_id);
+            // $houseDetails = $house->houseDetailsById($house_id);
             
         }
         ?>
@@ -82,7 +82,7 @@ include "./inc/header.php";
                 <input type="file" name="image[]" multiple />
             </div>
 
-            <button type="submit" name="house_add_btn" class="form-btn">Create</button>
+            <button type="submit" name="house_update_btn" class="form-btn">Update</button>
         </form>
     </div>
 </div>

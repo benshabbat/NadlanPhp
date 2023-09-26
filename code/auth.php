@@ -2,24 +2,16 @@
 include_once "./controllers/RegisterController.php";
 include_once "./controllers/LoginController.php";
 $auth = new LoginController;
+$username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+$password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+
 if (isset($_POST['logout_btn'])) {
-    $checkedLoggedOut=$auth->logout();
-    if($checkedLoggedOut){
-        redirect("Logged out Succesfully", "login.php");
-    }
+    $auth->logout();
 }
 
 if (isset($_POST['login_btn'])) {
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = md5($password);
-
-    $checkLogin = $auth->userLogin($username, $password);
-    if ($checkLogin) {
-        redirect("Logged in Succesfully", "index.php");
-    } else {
-        redirect("Invalid Username Or Password", "login.php");
-    }
+    $auth->userLogin($username, $password);
 }
 
 if (isset($_POST['register_btn'])) {

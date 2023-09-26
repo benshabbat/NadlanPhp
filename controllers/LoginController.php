@@ -13,22 +13,14 @@ class LoginController
 
     public function userLogin($username, string $password)
     {
-        // $options = [
-        //     'cost' => 12,
-        // ];
-        // $new_hash = password_hash($password, PASSWORD_DEFAULT);
         $login_query = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
         $result = mysqli_query($this->conn, $login_query);
         $user = $result->fetch_assoc();
-        $rows = mysqli_num_rows($result);
-        // var_dump($user);
-        // exit;
         if ($user) {
-
             $this->userAuth($user);
-            return true;
+            redirect("Logged in Succesfully", "index.php");
         } else {
-            return false;
+            redirect("Invalid Username Or Password", "login.php");
         }
     }
 
@@ -59,9 +51,7 @@ class LoginController
         if (isset($_SESSION['authenticated'])) {
             unset($_SESSION['authenticated']);
             unset($_SESSION['auth_user']);
-            return true;
-        } else {
-            return false;
-        }
+            redirect("Logged out Succesfully", "login.php");
+        } 
     }
 }

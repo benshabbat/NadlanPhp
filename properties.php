@@ -1,7 +1,5 @@
 <?php
-
 include_once "./controllers/HouseController.php";
-
 include "./inc/header.php";
 ?>
 

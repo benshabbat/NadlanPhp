@@ -23,13 +23,13 @@
         <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
           <button type="submit" name="logout_btn">Logout</button>
         </form>
-        <a href="houses.php">כל הדירות</a>
+        <a href="houses.php">My Houses</a>
         <a href="profile.php">Hello <?php echo $_SESSION['auth_user']["user_username"]; ?></a>
       </nav>
     <?php else : ?>
       <nav class="navbar">
-        <a href="profile.php">My Profile</a>
-        <a href="houses.php">Houses</a>
+        <!-- <a href="profile.php">My Profile</a> -->
+        <a href="index.php">Houses</a>
         <a href="login.php">Login</a>
         <!-- <button class="btn-login">Login</button> -->
       </nav>

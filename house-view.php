@@ -3,11 +3,9 @@ include "./config/app.php";
 include_once "./controllers/AuthController.php";
 include_once "./controllers/HouseController.php";
 $authenticated = new AuthController;
-
+$data = $authenticated->authUserDetail();
 include "./inc/header.php";
 ?>
-
-
 <div className="table-container">
     <section className="table__header">
         <h1>Houses</h1>
@@ -32,14 +30,16 @@ include "./inc/header.php";
                     <th>upload</th>
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th><a href="house-add.php">Add House</a></th>
                 </tr>
             </thead>
-            <tbody> <?php
-                    $houses = new HouseController;
-                    $housesDetails = $houses->houseDetails();
-                    while ($houseDetails = mysqli_fetch_array($housesDetails)) {
-                        if ($houseDetails['username'] == "david") {
-                    ?>
+            <tbody>
+                <?php
+                $houses = new HouseController;
+                $housesDetails = $houses->houseDetails();
+                while ($houseDetails = mysqli_fetch_array($housesDetails)) {
+                    if ($houseDetails['username'] == $_SESSION['auth_user']['user_username']) {
+                ?>
                         <tr>
                             <td><?= $houseDetails['username']; ?></td>
                             <td><?= $houseDetails['property_type']; ?></td>
@@ -54,17 +54,14 @@ include "./inc/header.php";
                             <td><?= $houseDetails['images']; ?></td>
                             <td><a href="./house-edit.php?id=<?= $houseDetails['id']; ?>">Edit</a></td>
                             <td>
-                                <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="$_POST">
-                                    <button type="submit" name="delete_btn" value="<?= $houseDetails['id']; ?>">Delete</button>
+                                <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                                    <button type="submit" name="house_delete_btn" value="<?= $houseDetails['id']; ?>">Delete</button>
                                 </form>
                             </td>
                         </tr>
                 <?php
-                        }
                     }
-                    //     else {
-                    //        echo "No records found";
-                    //    }
+                }
                 ?>
             </tbody>
         </table>

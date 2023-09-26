@@ -27,9 +27,7 @@ include "./inc/header.php";
                     <th>rooms</th>
                     <th>sqm</th>
                     <th>perks</th>
-                    <th>upload</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Photos</th>
                 </tr>
             </thead>
             <tbody> <?php
@@ -51,10 +49,8 @@ include "./inc/header.php";
                             <td><?= $houseDetails['sqm']; ?></td>
                             <td><?= $houseDetails['perks']; ?></td>
                             <td><?= $houseDetails['images']; ?></td>
-                            <td><a href="./house-edit.php?id=<?= $houseDetails['id']; ?>">Edit</a></td>
-                            <td><form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="$_POST">
-                                <button type="submit" name="delete_btn" value="<?= $houseDetails['id']; ?>">Delete</button>
-                            </form></td>
+                            </form>
+                        </td>
                         </tr>
                 <?php
                         }

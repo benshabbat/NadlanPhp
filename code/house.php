@@ -35,6 +35,11 @@ if (isset($_POST['house_update_btn'])) {
     $house->update($inputData, $id);
 }
 
+if (isset($_POST['house_delete_btn'])) {
+    $id = $_POST['house_delete_btn'];
+    $house->delete($id);
+}
+
 
 
 

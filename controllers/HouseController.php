@@ -77,4 +77,15 @@ class HouseController
             redirect("Something went wrong", "house-view.php");
         }
     }
+
+    public function delete($id)
+    {
+        $houseDeleteQuery = "DELETE FROM houses WHERE id = '$id' limit 1";
+        $result = mysqli_query($this->conn, $houseDeleteQuery);
+        if ($result) {
+            redirect("House Deleted Success", "house-view.php");
+        } else {
+            redirect("Something went wrong", "house-view.php");
+        }
+    }
 }

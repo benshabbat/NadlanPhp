@@ -1,6 +1,7 @@
 <?php
 include "./config/app.php";
 include_once "./controllers/AuthController.php";
+include_once "./controllers/HouseController.php";
 $authenticated = new AuthController;
 $data = $authenticated->authUserDetail();
 include "./inc/header.php";
@@ -26,11 +27,15 @@ include "./inc/header.php";
                     <label>Username : <?= $data["username"] ?> </label>
                 </div>
                 <div class="input-box">
-                    <label>Created At : <?= date_format(date_create($data['reg_date']),'g:ia \o\n l jS F Y'); ?> </label>
+                    <label>Created At : <?= date_format(date_create($data['reg_date']), 'g:ia \o\n l jS F Y'); ?> </label>
                 </div>
+                <div class="input-box">
+                    <label><a href="house-view.php">Your Houses</a></label>
+                </div>
+
             </form>
         </div>
     </div>
- 
+
 
 </div>

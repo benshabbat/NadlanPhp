@@ -1,6 +1,5 @@
 <?php
 include "./config/app.php";
-
 include_once "./controllers/AuthController.php";
 include_once "./controllers/HouseController.php";
 $authenticated = new AuthController;
@@ -38,8 +37,8 @@ include "./inc/header.php";
             <tbody> <?php
                     $houses = new HouseController;
                     $housesDetails = $houses->houseDetails();
-                    if ($housesDetails) {
-                        foreach ($housesDetails as $houseDetails) {
+                    while ($houseDetails = mysqli_fetch_array($housesDetails)) {
+                        if ($houseDetails['username'] == "david") {
                     ?>
                         <tr>
                             <td><?= $houseDetails['username']; ?></td>
@@ -54,15 +53,18 @@ include "./inc/header.php";
                             <td><?= $houseDetails['perks']; ?></td>
                             <td><?= $houseDetails['images']; ?></td>
                             <td><a href="./house-edit.php?id=<?= $houseDetails['id']; ?>">Edit</a></td>
-                            <td><form action="" method="$_POST">
-                                <button type="submit" name="delete_btn" value="<?= $houseDetails['id']; ?>">Delete</button>
-                            </form></td>
+                            <td>
+                                <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="$_POST">
+                                    <button type="submit" name="delete_btn" value="<?= $houseDetails['id']; ?>">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                 <?php
                         }
-                    } else {
-                        echo "No records found";
                     }
+                    //     else {
+                    //        echo "No records found";
+                    //    }
                 ?>
             </tbody>
         </table>

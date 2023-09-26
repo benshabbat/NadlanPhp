@@ -2,6 +2,15 @@
 include_once "./controllers/RegisterController.php";
 include_once "./controllers/LoginController.php";
 $auth = new LoginController;
+$db = new DatabaseConnection;
+// $username = $email = $phone = $password = $confirm_password = "";
+// $username =  mysqli_real_escape_string($db->conn, $_POST['username']);
+// $email =  mysqli_real_escape_string($db->conn, $_POST['email']);
+// $phone = mysqli_real_escape_string($db->conn, $_POST['phone']);
+// $password = mysqli_real_escape_string($db->conn, $_POST['password']);
+// $confirm_password = mysqli_real_escape_string($db->conn, $_POST['confirm_password']);
+
+
 $username =  filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 $email =  filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -21,9 +30,9 @@ if (isset($_POST['register_btn'])) {
     $register = new RegisterController;
     if (strcmp($password, $confirm_password) == 0) {
         $password = md5($password);
-        $result_email =$register->isEmailExist($email);
+        $result_email = $register->isEmailExist($email);
         $result_user = $register->isUserExist($username);
-        if (!$result_user&&!$result_email) {
+        if (!$result_user && !$result_email) {
             $register->registration($username, $email, $phone, $password);
         } else {
             redirect("Register Faild", "register.php");

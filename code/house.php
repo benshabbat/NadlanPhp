@@ -12,6 +12,7 @@ $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_INT);
 $rooms = filter_input(INPUT_POST, "rooms", FILTER_SANITIZE_NUMBER_INT);
 $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
 $perks = [];
+
 $inputData = [
     'username' => $username,
     'property_type' => $property_type,

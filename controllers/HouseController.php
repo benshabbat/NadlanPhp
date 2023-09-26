@@ -13,12 +13,12 @@ class HouseController
     public function create($inputData)
     {
 
-        $data = "' " . implode("','", $inputData) . " '";
+        $data = "'" . implode("','", $inputData) . "'";
         echo $data;
 
 
         $sql = "INSERT INTO houses (username,property_type,city,address,floor,description,price,rooms,sqm,perks,images)
-        VALUES (  $data )";
+        VALUES ($data)";
 
         $result = mysqli_query($this->conn, $sql);
         if ($result) {
@@ -30,12 +30,21 @@ class HouseController
 
     public function houseDetails()
     {
-        $username = $_SESSION['auth_user']['user_username'];
         $getHouseData = "SELECT * FROM houses";
         $result = mysqli_query($this->conn, $getHouseData);
         // $house = $result->fetch_assoc();
         if ($result) {
             return $result;
+        }
+    }
+    public function houseDetailsByUsername(string $username)
+    {
+        // $username = $_SESSION['auth_user']['user_username'];
+        $getHouseData = "SELECT * FROM houses WHERE username = '$username'";
+        $result = mysqli_query($this->conn, $getHouseData);
+        $house = $result->fetch_assoc();
+        if ($house) {
+            return $house;
         }
     }
     public function houseDetailsById($id)

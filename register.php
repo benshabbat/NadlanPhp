@@ -15,23 +15,23 @@ include "./inc/header.php";
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="input-box">
                     <label>Username</label>
-                    <input type="text" name="username" value="" autocomplete="off" required />
+                    <input type="text" name="username" autocomplete="off" required />
                 </div>
                 <div class="input-box">
                     <label>Email</label>
-                    <input type="email" name="email" value="" autocomplete="off" required />
+                    <input type="email" name="email" autocomplete="off" required />
                 </div>
                 <div class="input-box">
                     <label>Phone</label>
-                    <input type="phone" name="phone" value="" autocomplete="off" required />
+                    <input type="phone" name="phone" autocomplete="off" required />
                 </div>
                 <div class="input-box">
                     <label>Password</label>
-                    <input type="password" name="password" value="" autocomplete="off"  required />
+                    <input type="password" name="password" ="off"  required />
                 </div>
                 <div class="input-box">
                     <label>Confirm Password</label>
-                    <input type="password" name="confirm_password" value="" autocomplete="off" required />
+                    <input type="password" name="confirm_password" autocomplete="off" required />
                 </div>
                 <button class="form-btn" type="submit" name="register_btn">Register</button>
                 <div class="login-register">

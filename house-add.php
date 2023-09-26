@@ -33,7 +33,7 @@ include "./inc/header.php";
             </div>
             <div class="input-box">
                 <label>Floor</label>
-                <input type="number" name="floor" required />
+                <input type="number" name="floor" min=1 />
             </div>
             <div class="input-box">
                 <label>Description</label>

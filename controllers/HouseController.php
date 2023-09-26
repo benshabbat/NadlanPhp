@@ -22,9 +22,9 @@ class HouseController
 
         $result = mysqli_query($this->conn, $sql);
         if ($result) {
-            return true;
+            redirect("House add Success", "house-view.php");
         } else {
-            return false;
+            redirect("Something went wrong", "house-add.php");
         }
     }
 
@@ -63,9 +63,9 @@ class HouseController
          WHERE id = '$id' limit 1";
         $result = mysqli_query($this->conn, $houseUpdateQuery);
         if ($result) {
-            return true;
+            redirect("House updated Success", "house-view.php");
         } else {
-            return false;
+            redirect("Something went wrong", "house-view.php");
         }
     }
 }

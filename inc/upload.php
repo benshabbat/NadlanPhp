@@ -3,8 +3,8 @@
 
 
   $allowed_ext = array('png', 'jpg', 'jpeg', 'gif');
-
- if(isset($_POST['house_add_btn'])) {
+  $files_array= [];
+ if(isset($_POST['house_add_btn'])||isset($_POST['house_update_btn'])){
    // Check if file was uploaded
    if(!empty($_FILES['image']['name'])) {
     $total_files = count($_FILES['image']['name']);
@@ -26,7 +26,7 @@
           // Validate file size
         if($file_size <= 1000000) { // 1000000 bytes = 1MB
             // Upload file
-            move_uploaded_file($new_image_name, $target_dir);
+            move_uploaded_file($file_tmp, $target_dir);
             $files_array[]=$new_image_name;
             // Success message
             echo '<p style="color: green;">File uploaded!</p>';
@@ -45,7 +45,3 @@
      $message = '<p style="color: red;">Please choose a file</p>';
    }
  }
-
-
-
-?>

@@ -17,6 +17,8 @@ include "./inc/header.php";
             $house = new HouseController;
             $houseDetails = $house->edit($house_id);
             // $houseDetails = $house->houseDetailsById($house_id);
+            $perks = $houseDetails['perks'];
+            $perks = explode(",",$perks);
             
         }
         ?>
@@ -64,14 +66,14 @@ include "./inc/header.php";
             <div>
                 <label>Perks:</label>
                 <div class="column">
-                    <input type="checkbox" name="perks[]" value="air_conditioner" checked= <?= $houseDetails['perks']; ?> />Air Conditioner
-                    <input type="checkbox" name="perks[]" value="elevator" checked= <?= $houseDetails['perks']; ?> />Elevator
-                    <input type="checkbox" name="perks[]" value="renovated" checked= <?= $houseDetails['perks']; ?> />Renovated
-                    <input type="checkbox" name="perks[]" value="furnished" checked= <?= $houseDetails['perks']; ?> />Furnished
-                    <input type="checkbox" name="perks[]" value="bars" checked= <?= $houseDetails['perks']; ?>/>Bars
-                    <input type="checkbox" name="perks[]" value="parking" checked= <?= $houseDetails['perks']; ?>/>Parking
-                    <input type="checkbox" name="perks[]" value="warehouse" checked= <?= $houseDetails['perks']; ?>/>Warehouse
-                    <input type="checkbox" name="perks[]" value="dimension" checked= <?= $houseDetails['perks']; ?>/>Dimension
+                    <input type="checkbox" name="perks[]" value="air_conditioner" <?= in_array("air_conditioner",$perks)? "checked":false; ?> />Air Conditioner
+                    <input type="checkbox" name="perks[]" value="elevator" <?= in_array("elevator",$perks)? "checked":false; ?>  />Elevator
+                    <input type="checkbox" name="perks[]" value="renovated"  <?= in_array("renovated",$perks)? "checked":false; ?>  />Renovated
+                    <input type="checkbox" name="perks[]" value="furnished" <?= in_array("furnished",$perks)? "checked":false; ?>  />Furnished
+                    <input type="checkbox" name="perks[]" value="bars" <?= in_array("bars",$perks)? "checked":false; ?> />Bars
+                    <input type="checkbox" name="perks[]" value="parking"  <?= in_array("parking",$perks)? "checked":false; ?> />Parking
+                    <input type="checkbox" name="perks[]" value="warehouse"  <?= in_array("warehouse",$perks)? "checked":false; ?> />Warehouse
+                    <input type="checkbox" name="perks[]" value="dimension"  <?= in_array("dimension",$perks)? "checked":false; ?> />Dimension
                 </div>
             </div>
 

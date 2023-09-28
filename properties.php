@@ -17,7 +17,7 @@ include "./inc/header.php";
                     <li>
                         <div class="property-card">
                             <figure class="card-banner">
-                                <img src="./assets/images/houses/<?= $houseDetails['images']; ?>" alt="<?= $houseDetails['images']; ?>" class="img-cover" />
+                                <img src="./assets/images/houses/".<?=$houseDetails['images']; ?> alt="<?= $houseDetails['images']; ?>" class="img-cover" />
                             </figure>
 
                             <div class="card-content">

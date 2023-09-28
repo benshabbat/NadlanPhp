@@ -3,7 +3,7 @@
 
 
   $allowed_ext = array('png', 'jpg', 'jpeg', 'gif');
-  $files_array= [];
+  $images= [];
  if(isset($_POST['house_add_btn'])||isset($_POST['house_update_btn'])){
    // Check if file was uploaded
    if(!empty($_FILES['image']['name'])) {
@@ -38,7 +38,7 @@
           }
    }
 
-   $files_array = json_encode($files_array);
+   $images = json_encode($files_array);
   
   
   } else {

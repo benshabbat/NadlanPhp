@@ -27,7 +27,7 @@ include "./inc/header.php";
                     <th>rooms</th>
                     <th>sqm</th>
                     <th>perks</th>
-                    <th>upload</th>
+                    <th>images</th>
                     <th>Edit</th>
                     <th>Delete</th>
                     <th><a href="house-add.php">Add House</a></th>

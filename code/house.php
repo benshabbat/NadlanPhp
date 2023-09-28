@@ -24,7 +24,7 @@ $inputData = [
     'rooms' => $rooms,
     'sqm' => $sqm,
     'perks' => $perks,
-    'images' => $files_array,
+    'images' => $images,
     
 ];
 if (isset($_POST['house_update_btn'])) {

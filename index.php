@@ -8,6 +8,7 @@ include "./inc/header.php";
     <?php
     include "./message.php";
     include "./properties.php";
+    // include "./property2.php";
     ?>
 </body>
 

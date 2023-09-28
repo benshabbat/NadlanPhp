@@ -27,7 +27,7 @@
         if($file_size <= 1000000) { // 1000000 bytes = 1MB
             // Upload file
             move_uploaded_file($file_tmp, $target_dir);
-            $files_array[]=$new_image_name;
+            $images[]=$new_image_name;
             // Success message
             echo '<p style="color: green;">File uploaded!</p>';
         } else {
@@ -38,7 +38,7 @@
           }
    }
 
-   $images = json_encode($files_array);
+   $images = json_encode($images);
   
   
   } else {

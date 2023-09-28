@@ -3,60 +3,71 @@ include_once "./controllers/HouseController.php";
 include "./inc/header.php";
 ?>
 
+<section class="property">
+    <div class="property-container">
 
-<div className="table-container">
-    <section className="table__header">
-        <h1>Houses</h1>
-        <div className="input-group">
-            <input type="search" placeholder="Search Data..." onChange={search} />
-        </div>
-    </section>
-    <section className="table__body">
-        <table>
-            <thead>
-                <tr>
-                    <th>username</th>
-                    <th>property_type</th>
-                    <th>city</th>
-                    <th>address</th>
-                    <th>floor</th>
-                    <th>description</th>
-                    <th>price</th>
-                    <th>rooms</th>
-                    <th>sqm</th>
-                    <th>perks</th>
-                    <th>Photos</th>
-                </tr>
-            </thead>
-            <tbody> <?php
-            
-                    $houses = new HouseController;
-                    $housesDetails = $houses->houseDetails();
-                    if ($housesDetails) {
-                        foreach ($housesDetails as $houseDetails) {
-                    ?>
-                        <tr>
-                            <td><?= $houseDetails['username']; ?></td>
-                            <td><?= $houseDetails['property_type']; ?></td>
-                            <td><?= $houseDetails['city']; ?></td>
-                            <td><?= $houseDetails['address']; ?></td>
-                            <td><?= $houseDetails['floor']; ?></td>
-                            <td><?= $houseDetails['description']; ?></td>
-                            <td><?= $houseDetails['price']; ?></td>
-                            <td><?= $houseDetails['rooms']; ?></td>
-                            <td><?= $houseDetails['sqm']; ?></td>
-                            <td><?= $houseDetails['perks']; ?></td>
-                            <td><?= $houseDetails['images']; ?></td>
-                            </form>
-                        </td>
-                        </tr>
-                <?php
-                        }
-                    } else {
-                        echo "No records found";
-                    }
-                ?>
-            </tbody>
-        </table>
-    </section>
-</div>
+        <ul class="property-list">
+            <?php
+
+            $houses = new HouseController;
+            $housesDetails = $houses->houseDetails();
+            if ($housesDetails) {
+                foreach ($housesDetails as $houseDetails) {
+            ?>
+                    <li>
+                        <div class="property-card">
+                            <figure class="card-banner">
+                                <img src="./assets/images/houses/<?= $houseDetails['images']; ?>" alt="<?= $houseDetails['images']; ?>" class="img-cover" />
+                            </figure>
+
+                            <div class="card-content">
+                                <h3 class="property-h3">
+                                    <a href="#" class="card-title">City <?= $houseDetails['city']; ?> Address <?= $houseDetails['address']; ?> </a>
+                                </h3>
+                                <ul class="card-list">
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="cube-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text"><?= $houseDetails['sqm']; ?> sqm</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="bed-outline"></ion-icon>
+                                        </div>
+                                        <span class="item-text"><?= $houseDetails['rooms']; ?> Rooms</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="man-outline"></ion-icon>
+                                        </div>
+                                        <span class="item-text"><?= $houseDetails['floor']; ?> floor</span>
+                                    </li>
+                                </ul>
+
+                                <div class="card-meta">
+                                    <div>
+                                        <span class="meta-title">Price</span>
+                                        <span class="meta-text"><?= $houseDetails['price']; ?>$</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="meta-title">For</span>
+                                        <span class="meta-text"> <?= $houseDetails['property_type']; ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            <?php
+                }
+            } else {
+                echo "No records found";
+            }
+            ?>
+        </ul>
+    </div>
+</section>

@@ -22,8 +22,9 @@ body {
   box-sizing: border-box;
 }
 
-img {
-  height: auto;
+img{
+  width: 100%;
+  display: block;
 }
 li {
   list-style: none;
@@ -609,201 +610,139 @@ tbody td.active {
 
 /** END PROPERTIES */
 
-/** List of properties**/
-
-.main-wrapper-list{
-  margin-top: 120px;
-  min-height: 100vh;
-  overflow-x: 0;
-}
-.container-list{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-.main-title-list{
-  text-align: center;
-}
-.main-title-list h1{
-  padding: 16px 0;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-.display-style-btns{
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 16px 0;
-  border-radius: 5px;
-}
-.display-style-btns button{
-  border: none;
-  font-size: 22px;
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 8px;
-  background-color: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-.display-style-btns button:hover{
-  color: #f79410;
-}
-.active-btn{
-  color: #f79410;
+/** START PROFILE HOUSE*/
+.card-wrapper{
+  max-width: 1100px;
+  margin: 120px auto;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-
-.item-list{
-  margin: 36px 0;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  row-gap: 32px;
-}
-.item{
-  border-radius: 5px;
+.img-display{
   overflow: hidden;
-  box-shadow: 0 0 4px 0 rgba(15, 4, 4, 0.05);
-  transition: all 0.2s ease-out;
 }
-.item:hover{
-  box-shadow: 0 0 10px 1px rgba(0, 4, 4, 0.15);
+.img-showcase{
+  display: flex;
+  width: 100%;
+  transition: all 0.5s ease;
 }
-.item-img{
+.img-showcase img{
+  min-width: 100%;
+}
+.img-select{
+  display: flex;
+}
+.img-item{
+  margin: 0.3rem;
+}
+.img-item:nth-child(1),
+.img-item:nth-child(2),
+.img-item:nth-child(3){
+  margin-right: 0;
+}
+.img-item:hover{
+  opacity: 0.8;
+}
+.product-content{
+  padding: 2rem 1rem;
+}
+.product-title{
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-weight: 700;
   position: relative;
-  overflow: hidden;
+  color: #12263a;
+  margin: 1rem 0;
 }
-.item-img img{
-  width: 70%;
-  margin: 16px auto;
-}
-.icon-list{
+.product-title::after{
+  content: "";
   position: absolute;
-  bottom: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease-out;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 80px;
+  background: #12263a;
 }
-.icon-list button{
-  border: none;
-  background-color: #202020;
-  color: #fff;
-  margin: 0 6px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-.icon-list button:hover{
-  background-color: #f4f4f4;
-  color: #202020;
-}
-.item-img:hover .icon-list{
-  bottom: 26px;
-}
-.item-detail{
-  padding: 16px;
-  color: #202020;
-  text-align: center;
-}
-.item-name{
-  font-weight: 500;
-  font-size: 18px;
-  color: #202020;
-  display: block;
-}
-.item-price{
-  margin: 10px 0;
-  font-weight: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.old-price{
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-.new-price{
-  color: #f79410;
-  font-size: 18px;
-  font-weight: 600;
-  margin-right: 10px;
-}
-.item-detail p{
-  font-weight: 300;
-  opacity: 0.9;
-  font-size: 15px;
-  line-height: 1.7;
-  display: none;
-}
-.add-btn-list{
-  margin: 16px 0;
+.product-link{
+  text-decoration: none;
   text-transform: uppercase;
-  border: none;
-  background-color: #202020;
+  font-weight: 400;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  background: #256eff;
   color: #fff;
-  font-family: inherit;
-  padding: 10px 28px;
-  border: 1px solid #202020;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-  display: none;
+  padding: 0 0.3rem;
+  transition: all 0.5s ease;
 }
-.add-btn-list:hover{
-  background-color: #fff;
-  color: #202020;
+.product-link:hover{
+  opacity: 0.9;
+}
+.product-rating{
+  color: #ffc107;
+}
+
+.product-price{
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.product-price span{
+  font-weight: 400;
+}
+.new-price span{
+  color: #256eff;
+}
+.product-detail h2{
+  text-transform: capitalize;
+  color: #12263a;
+  padding-bottom: 0.6rem;
+}
+.product-detail p{
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  opacity: 0.8;
+}
+.product-detail ul{
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+.product-detail ul li{
+  margin: 0;
+  list-style: none;
+  background: url(shoes_images/checked.png) left center no-repeat;
+  background-size: 18px;
+  padding-left: 1.7rem;
+  margin: 0.4rem 0;
+  font-weight: 600;
+  opacity: 0.9;
+}
+.product-detail ul li span{
+  font-weight: 400;
 }
 
 
-/* stylings for details active */
-.details-active.item-list{
-  grid-template-columns: 100%;
-}
-.details-active .item{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-}
-.details-active .item-detail{
-  text-align: left;
-}
-.details-active .item-price{
-  justify-content: flex-start;
-}
-.details-active .item-detail p{
-  display: block;
-}
-.details-active .item-detail .add-btn{
-  display: block;
-}
-
-
-
-@media screen and (min-width: 678px){
-  .item-list{
+@media screen and (min-width: 992px){
+  .card{
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      grid-gap: 1.5rem;
   }
-}
-
-@media screen and (min-width: 768px){
-  .item-list{
-      grid-template-columns: repeat(3, 1fr);
+  .card-wrapper{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
-}
-
-@media screen and (max-width: 576px){
-  .details-active .item{
-      grid-template-columns: 100%;
+  .product-imgs{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
   }
-}
+  .product-content{
+      padding-top: 0;
+  }
+} /**END PROFILE HOUSE*/

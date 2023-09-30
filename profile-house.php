@@ -1,3 +1,12 @@
+<?php
+include "./config/app.php";
+include_once "./controllers/AuthController.php";
+
+$authenticated = new AuthController;
+$userDetails = $authenticated->authUserDetail();
+include "./inc/header.php";
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,7 +18,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   </head>
   <body>
-    
+  <?php
+        if (isset($_GET['id'])) {
+            $house_id = mysqli_real_escape_string($db->conn,$_GET['id']);
+            $house = new HouseController;
+            $houseDetails = $house->edit($house_id);
+            // $houseDetails = $house->houseDetailsById($house_id);
+            $perks = $houseDetails['perks'];
+            $perks = explode(",",$perks);
+            
+        }
+        ?>
     <div class = "card-wrapper">
       <div class = "card">
         <!-- card left -->
@@ -47,20 +66,11 @@
         </div>
         <!-- card right -->
         <div class = "product-content">
-          <h2 class = "product-title">nike shoes</h2>
-          <a href = "#" class = "product-link">visit nike store</a>
-          <div class = "product-rating">
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star-half-alt"></i>
-            <span>4.7(21)</span>
-          </div>
+          <h2 class = "product-title"><?= $houseDetails['city']; ?></h2>
+          <a href = "#" class = "product-link"> For <?= $houseDetails['property_type']; ?></a>
 
           <div class = "product-price">
-            <p class = "last-price">Old Price: <span>$257.00</span></p>
-            <p class = "new-price">New Price: <span>$249.00 (5%)</span></p>
+            <p class = "new-price">Price: <span><?= $houseDetails['price']; ?></span></p>
           </div>
 
           <div class = "product-detail">
@@ -68,45 +78,14 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
             <ul>
-              <li>Color: <span>Black</span></li>
-              <li>Available: <span>in stock</span></li>
-              <li>Category: <span>Shoes</span></li>
-              <li>Shipping Area: <span>All over the world</span></li>
-              <li>Shipping Fee: <span>Free</span></li>
+            <?php foreach ($perks as $perk): ?>
+              <li><?= $perk; ?></li>
+              <?php endforeach; ?>
             </ul>
-          </div>
-
-          <div class = "purchase-info">
-            <input type = "number" min = "0" value = "1">
-            <button type = "button" class = "btn">
-              Add to Cart <i class = "fas fa-shopping-cart"></i>
-            </button>
-            <button type = "button" class = "btn">Compare</button>
-          </div>
-
-          <div class = "social-links">
-            <p>Share At: </p>
-            <a href = "#">
-              <i class = "fab fa-facebook-f"></i>
-            </a>
-            <a href = "#">
-              <i class = "fab fa-twitter"></i>
-            </a>
-            <a href = "#">
-              <i class = "fab fa-instagram"></i>
-            </a>
-            <a href = "#">
-              <i class = "fab fa-whatsapp"></i>
-            </a>
-            <a href = "#">
-              <i class = "fab fa-pinterest"></i>
-            </a>
           </div>
         </div>
       </div>
     </div>
 
     
-    <script src="script.js"></script>
-  </body>
-</html>
+    <script src="./assets/js/script.js"></script>

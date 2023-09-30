@@ -24,7 +24,7 @@
         <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
           <button type="submit" name="logout_btn">Logout</button>
         </form>
-        <a href="houses.php">My Houses</a>
+        <a href="house-view.php">My Houses</a>
         <a href="profile.php">Hello <?php echo $_SESSION['auth_user']["user_username"]; ?></a>
       </nav>
     <?php else : ?>

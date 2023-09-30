@@ -17,13 +17,15 @@ include "./inc/header.php";
                     <li>
                         <div class="property-card">
                             <figure class="card-banner">
-                                <img src="./assets/images/houses/".<?=$houseDetails['images']; ?> alt="<?= $houseDetails['images']; ?>" class="img-cover" />
+                                <img src="./assets/images/houses/img1.jpg" alt="img1" class="img-cover">
+                                <!-- <img src="./assets/images/houses/".<?= $houseDetails['images']; ?> alt="<?= $houseDetails['images']; ?>" class="img-cover" /> -->
                             </figure>
 
                             <div class="card-content">
-                                <h3 class="property-h3">
-                                    <a href="#" class="card-title">City <?= $houseDetails['city']; ?> Address <?= $houseDetails['address']; ?> </a>
-                                </h3>
+                                
+                                    <h2 href="#" class="card-title">City <?= $houseDetails['city']; ?> </h2>
+                                    <h3 href="#" class="card-title">Address <?= $houseDetails['address']; ?> </h3>
+                    
                                 <ul class="card-list">
                                     <li class="card-item">
                                         <div class="item-icon">

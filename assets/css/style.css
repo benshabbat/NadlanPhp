@@ -174,22 +174,6 @@ a {
   column-gap: 15px;
   grid-row: auto;
 }
-/* .input-box label {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: black;
-  font-weight: 500;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
-  top: -5px;
-} */
 .input-box label {
   font-size: 20px;
 }
@@ -463,6 +447,7 @@ tbody td.active {
 }
 
 .property-card {
+  cursor: pointer;
   position: relative;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -481,7 +466,8 @@ tbody td.active {
 }
 
 .property-card .img-cover {
-  width: 120px;
+  margin: 12px;
+  width: 240px;
 }
 .property-card .card-content {
   color: hsl(224, 34%, 13%);
@@ -558,6 +544,14 @@ tbody td.active {
   color: hsl(43, 96%, 56%);
   font-size: 16px;
 }
+.property-card .crud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 15px;
+  
+}
 
 /*=========== Media Queries */
 
@@ -618,7 +612,7 @@ tbody td.active {
 /** List of properties**/
 
 .main-wrapper-list{
-  background-color: #fff;
+  margin-top: 120px;
   min-height: 100vh;
   overflow-x: 0;
 }
@@ -627,10 +621,10 @@ tbody td.active {
   margin: 0 auto;
   padding: 0 16px;
 }
-.main-title{
+.main-title-list{
   text-align: center;
 }
-.main-title h1{
+.main-title-list h1{
   padding: 16px 0;
   font-weight: 500;
   text-transform: uppercase;
@@ -641,7 +635,6 @@ tbody td.active {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #fff;
   padding: 16px 0;
   border-radius: 5px;
 }
@@ -670,7 +663,6 @@ tbody td.active {
   row-gap: 32px;
 }
 .item{
-  background-color: #fff;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 4px 0 rgba(15, 4, 4, 0.05);
@@ -754,7 +746,7 @@ tbody td.active {
   line-height: 1.7;
   display: none;
 }
-.add-btn{
+.add-btn-list{
   margin: 16px 0;
   text-transform: uppercase;
   border: none;
@@ -767,7 +759,7 @@ tbody td.active {
   transition: all 0.3s ease-out;
   display: none;
 }
-.add-btn:hover{
+.add-btn-list:hover{
   background-color: #fff;
   color: #202020;
 }

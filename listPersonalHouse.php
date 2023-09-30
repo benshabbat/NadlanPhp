@@ -1,6 +1,8 @@
+
+
 <div class="main-wrapper-list">
     <div class="container-list">
-        <div class="main-title">
+        <div class="main-title-list">
             <h1>Furniture Shop List</h1>
         </div>
         <div class="display-style-btns">
@@ -22,7 +24,7 @@
             ?>
                     <div class="item">
                         <div class="item-img">
-                            <img src="assets/images/houses/" .<?= $houseDetails['images']; ?>>
+                            <img src="./assets/images/houses/img1.jpg" alt="img1">
                             <div class="icon-list">
                                 <button type="button">
                                     <i class="fas fa-sync-alt"></i>
@@ -41,7 +43,7 @@
                                 <span class="new-price"><?= $houseDetails['price']; ?></span>
                             </div>
                             <p><?= $houseDetails['description']; ?></p>
-                            <button type="button" class="add-btn">add to cart</button>
+                            <button type="button" class="add-btn-list">add to cart</button>
                         </div>
                     </div>
             <?php

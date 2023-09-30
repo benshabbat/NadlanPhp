@@ -142,5 +142,6 @@ include "./inc/header.php";
             }
             ?>
         </ul>
+        <a href="./house-add.php">Add House</a>
     </div>
 </section>

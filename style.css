@@ -18,7 +18,6 @@ body{
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
-
 .img-display{
     overflow: hidden;
 }
@@ -111,7 +110,7 @@ body{
 .product-detail ul li{
     margin: 0;
     list-style: none;
-    background: url(shoes_images/checked.png) left center no-repeat;
+    background: url("./assets/shoes_images/checked.png") left center no-repeat;
     background-size: 18px;
     padding-left: 1.7rem;
     margin: 0.4rem 0;

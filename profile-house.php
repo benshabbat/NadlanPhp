@@ -6,18 +6,6 @@ $authenticated = new AuthController;
 $userDetails = $authenticated->authUserDetail();
 include "./inc/header.php";
 ?>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Product Card/Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-  </head>
-  <body>
   <?php
         if (isset($_GET['id'])) {
             $house_id = mysqli_real_escape_string($db->conn,$_GET['id']);
@@ -35,31 +23,31 @@ include "./inc/header.php";
         <div class = "product-imgs">
           <div class = "img-display">
             <div class = "img-showcase">
-              <img src = "shoes_images/shoe_1.jpg" alt = "shoe image">
-              <img src = "shoes_images/shoe_2.jpg" alt = "shoe image">
-              <img src = "shoes_images/shoe_3.jpg" alt = "shoe image">
-              <img src = "shoes_images/shoe_4.jpg" alt = "shoe image">
+              <img src = "./assets/shoes_images/shoe_1.jpg" alt = "shoe image">
+              <img src = "./assets/shoes_images/shoe_2.jpg" alt = "shoe image">
+              <img src = "./assets/shoes_images/shoe_3.jpg" alt = "shoe image">
+              <img src = "./assets/shoes_images/shoe_4.jpg" alt = "shoe image">
             </div>
           </div>
           <div class = "img-select">
             <div class = "img-item">
               <a href = "#" data-id = "1">
-                <img src = "shoes_images/shoe_1.jpg" alt = "shoe image">
+                <img src = "./assets/shoes_images/shoe_1.jpg" alt = "shoe image">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "2">
-                <img src = "shoes_images/shoe_2.jpg" alt = "shoe image">
+                <img src = "./assets/shoes_images/shoe_2.jpg" alt = "shoe image">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "3">
-                <img src = "shoes_images/shoe_3.jpg" alt = "shoe image">
+                <img src = "./assets/shoes_images/shoe_3.jpg" alt = "shoe image">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "4">
-                <img src = "shoes_images/shoe_4.jpg" alt = "shoe image">
+                <img src = "./assets/shoes_images/shoe_4.jpg" alt = "shoe image">
               </a>
             </div>
           </div>

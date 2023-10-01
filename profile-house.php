@@ -1,10 +1,6 @@
 <?php
 include "./config/app.php";
-include_once "./controllers/AuthController.php";
 include_once "./controllers/UserController.php";
-
-$authenticated = new AuthController;
-$userDetails = $authenticated->authUserDetail();
 include "./inc/header.php";
 ?>
 <?php
@@ -78,9 +74,11 @@ if (isset($_GET['id'])) {
         </div>
     </div>
     <div class="product-owner">
-        Owner:<?= $ownerDetails['username']; ?>
-        Phone:<?= $ownerDetails['phone']; ?>
-        Email:<?= $ownerDetails['email']; ?>
+        <p> Owner:<?= $ownerDetails['username']; ?></p>
+        <p> Phone:<?= $ownerDetails['phone']; ?></p>
+        <p> Email:<?= $ownerDetails['email']; ?></p>
+
+
     </div>
 </div>
 

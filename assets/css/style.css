@@ -708,9 +708,20 @@ tbody td.active {
 .product-detail ul li span {
   font-weight: 400;
 }
-.product-owner{
-  display: flex;
-  flex-direction: row;
+.product-owner { 
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+.product-owner p {
+  margin: 0;
+  list-style: none;
+  background: url("../shoes_images/checked.png") left center no-repeat;
+  background-size: 18px;
+  padding-left: 1.7rem;
+  margin: 0.4rem 0;
+  font-weight: 600;
+  opacity: 0.9;
+  text-transform: capitalize;
 }
 @media screen and (min-width: 992px) {
   .card {

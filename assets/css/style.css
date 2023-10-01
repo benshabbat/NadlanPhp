@@ -432,6 +432,24 @@ tbody td.active {
 }
 
 /*========== PROPERTIES =========*/
+.property-slider-box {
+  width: 90%;
+  margin-top: 120px;
+}
+.property-slider-box label,
+input {
+  border: none;
+  display: inline-block;
+  margin-right: -4px;
+  vertical-align: top;
+  width: 30%;
+}
+.property-slider-box input {
+  width: 70%;
+}
+.property-slider {
+  margin: 25px 0;
+}
 .property {
   margin-top: 20px;
   padding-block: 35px;
@@ -708,7 +726,7 @@ tbody td.active {
 .product-detail ul li span {
   font-weight: 400;
 }
-.product-owner { 
+.product-owner {
   margin: 1rem 0;
   font-size: 0.9rem;
 }

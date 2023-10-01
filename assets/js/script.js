@@ -16,22 +16,17 @@ detailsViewBtn.addEventListener('click', () => {
     itemList.classList.add("details-active");
 });
 
-const imgs = document.querySelectorAll('.img-select a');
-const imgBtns = [...imgs];
-let imgId = 1;
 
-imgBtns.forEach((imgItem) => {
-    imgItem.addEventListener('click', (event) => {
-        event.preventDefault();
-        imgId = imgItem.dataset.id;
-        slideImage();
+$(function() {
+    $("#price-range").slider({
+      step: 500,
+      range: true, 
+      min: 0, 
+      max: 20000, 
+      values: [0, 20000], 
+      slide: function(event, ui)
+      {$("#priceRange").val(ui.values[0] + " - " + ui.values[1]);}
     });
-});
-
-function slideImage(){
-    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
-
-    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
-}
-
-window.addEventListener('resize', slideImage);
+    $("#priceRange").val($("#price-range").slider("values", 0) + " - " + $("#price-range").slider("values", 1));
+    
+  });

@@ -456,10 +456,13 @@ input {
   text-align: center;
   margin-block: 15px 60px;
 }
+
 .property-container {
   padding-inline: 15px;
 }
-
+.search-filter{
+  margin-top: 400px;
+}
 .property-list {
   display: grid;
   gap: 30px;

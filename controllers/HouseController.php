@@ -57,6 +57,8 @@ class HouseController
         }
     }
 
+
+
     public function edit($id)
     {
         return $this->houseDetailsById($id);
@@ -87,5 +89,23 @@ class HouseController
         } else {
             redirect("Something went wrong", "house-view.php");
         }
+    }
+
+    public function searchType($valueToSearch)
+    {
+
+        if ($valueToSearch) // search cars
+        {
+            $valueToSearch = $_POST['valueToSearch'];
+            $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `typecar`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
+        } else {
+            $query = " SELECT * FROM `houses`";
+        }
+        return mysqli_query($this->conn, $query);
+    }
+    public function filterTable($query)
+    {
+         return mysqli_query($this->conn, $query);
+        // return $result->fetch_assoc();
     }
 }

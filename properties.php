@@ -1,38 +1,40 @@
 <?php
 include_once "./controllers/HouseController.php";
-include "./inc/header.php";
 
-
-
-if (isset($_POST['search'])) // search cars
-{
-    $valueToSearch = $_POST['valueToSearch'];
-    $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `typecar`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
-} else {
-    $query = " SELECT * FROM `houses`";
-}
-$result = mysqli_query($con, $query);
 ?>
 
 <section class="property">
-    <div class="search-fltier">
-        <div class="input-search">
-            <input type="text" name="valueToSearch" placeholder="Value To Search">
-            <button type="submit" name="search" class="btn" value="Filter">חפש</button>
-        </div>
+    <div class="wrapper">
+        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="off">
+            <div class="input-box">
+                <label>Search</label>
+                <input type="text" name="valueToSearch" placeholder="Value To Search">
+            </div>
+            <button type="submit" name="search" class="form-btn" value="Filter">חפש</button>
+        </form>
     </div>
-    <div class="property-slider-box">
+    <!-- <div class="property-slider-box">
         <label for="priceRange">Price Range:</label>
         <input type="text" id="priceRange" readonly>
         <div id="price-range" class="property-slider"></div>
-    </div>
+    </div> -->
     <div class="property-container">
         <ul class="property-list">
             <?php
             $houses = new HouseController;
-            $housesDetails = $houses->houseDetails();
-            if ($housesDetails) {
-                foreach ($housesDetails as $houseDetails) {
+            // $housesDetails = $houses->houseDetails();
+
+            if (isset($_POST['search'])) // search cars
+            {
+                $valueToSearch = $_POST['valueToSearch'];
+                $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
+                $search_result = $houses->filterTable($query);
+            } else {
+                $query = " SELECT * FROM `houses`";
+                $search_result = $houses->filterTable($query);
+            }
+            if ($search_result) {
+                foreach ($search_result as $houseDetails) {
             ?>
                     <li>
                         <div class="property-card">
@@ -93,5 +95,6 @@ $result = mysqli_query($con, $query);
             }
             ?>
         </ul>
+
     </div>
 </section>

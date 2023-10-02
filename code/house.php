@@ -40,7 +40,13 @@ if (isset($_POST['house_delete_btn'])) {
     $house->delete($id);
 }
 
-
+if (isset($_POST['search'])) // search houses
+{
+    $valueToSearch = $_POST['valueToSearch'];
+    $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `typecar`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
+} else {
+    $query = " SELECT * FROM `houses`";
+}
 
 
 if (isset($_POST['house_add_btn'])) {

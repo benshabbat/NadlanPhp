@@ -1,9 +1,26 @@
 <?php
 include_once "./controllers/HouseController.php";
 include "./inc/header.php";
+
+
+
+if (isset($_POST['search'])) // search cars
+{
+    $valueToSearch = $_POST['valueToSearch'];
+    $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `typecar`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
+} else {
+    $query = " SELECT * FROM `houses`";
+}
+$result = mysqli_query($con, $query);
 ?>
 
 <section class="property">
+    <div class="search-fltier">
+        <div class="input-search">
+            <input type="text" name="valueToSearch" placeholder="Value To Search">
+            <button type="submit" name="search" class="btn" value="Filter">חפש</button>
+        </div>
+    </div>
     <div class="property-slider-box">
         <label for="priceRange">Price Range:</label>
         <input type="text" id="priceRange" readonly>

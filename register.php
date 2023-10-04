@@ -10,7 +10,7 @@ include "./inc/header.php";
     <div class="wrapper">
         <a class="icon-close" href="index.php"> <i class='bx bx-x'></i></a>
         <div class="form-box login">
-            <?php include "./message.php"?>
+            <?php include "./message.php" ?>
             <h2>Register</h2>
             <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="input-box">
@@ -19,15 +19,15 @@ include "./inc/header.php";
                 </div>
                 <div class="input-box">
                     <label>Email</label>
-                    <input type="email" name="email" autocomplete="off" required />
+                    <input type="email" name="email" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  title="Email must contain @ in email address, example(user@gmail.com)" required />
                 </div>
                 <div class="input-box">
                     <label>Phone</label>
-                    <input type="phone" name="phone" autocomplete="off" required />
+                    <input type="phone" name="phone" autocomplete="off" pattern="[0-9]{3}-[0-9]{7}|[0-9]{10}" title="your phone must to be 10 digits"  required />
                 </div>
                 <div class="input-box">
                     <label>Password</label>
-                    <input type="password" name="password" ="off"  required />
+                    <input type="password" name="password"="off" required />
                 </div>
                 <div class="input-box">
                     <label>Confirm Password</label>

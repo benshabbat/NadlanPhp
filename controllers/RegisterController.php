@@ -10,7 +10,7 @@ class RegisterController
     }
 
     public function registration($username, $email, $phone, $password){
-        $phone=addstrPhone($phone);
+        $phone=$this->addstrPhone($phone);
         $register_query = "INSERT INTO users (username, email, phone, password) 
         VALUES ('$username', '$email','$phone', '$password')";
         $result = mysqli_query($this->conn, $register_query);

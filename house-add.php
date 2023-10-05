@@ -45,7 +45,16 @@ include "./inc/header.php";
             </div>
             <div class="input-box">
                 <label>Rooms</label>
-                <input type="number" name="rooms" min=1 />
+                <select name="taskOption">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                </select>
+                <!-- <input type="number" name="rooms" min=1 /> -->
             </div>
             <div class="input-box">
                 <label>SQM</label>

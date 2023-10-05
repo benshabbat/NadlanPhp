@@ -2,7 +2,7 @@
 include_once "./controllers/HouseController.php";
 include "./inc/upload.php";
 $house = new HouseController;
-$username="";
+$username = "";
 $property_type = filter_input(INPUT_POST, "property_type", FILTER_SANITIZE_SPECIAL_CHARS);
 $city = filter_input(INPUT_POST, "city", FILTER_SANITIZE_SPECIAL_CHARS);
 $address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -12,7 +12,8 @@ $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_INT);
 $rooms = filter_input(INPUT_POST, "rooms", FILTER_SANITIZE_NUMBER_INT);
 $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
 $perks = [];
-
+$valueToSearch="";
+$property="";
 $inputData = [
     'username' => $username,
     'property_type' => $property_type,
@@ -25,13 +26,13 @@ $inputData = [
     'sqm' => $sqm,
     'perks' => $perks,
     'images' => $images,
-    
+
 ];
 if (isset($_POST['house_update_btn'])) {
     $id = $_POST['id'];
     $perks = $_POST['perks'];
     $inputData['perks'] = implode(',', $perks);
-    $inputData['username']= $_SESSION['auth_user']["user_username"];
+    $inputData['username'] = $_SESSION['auth_user']["user_username"];
     $house->update($inputData, $id);
 }
 
@@ -42,17 +43,20 @@ if (isset($_POST['house_delete_btn'])) {
 
 if (isset($_POST['search'])) // search houses
 {
-    $valueToSearch = $_POST['valueToSearch'];
-    $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `typecar`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
-} else {
-    $query = " SELECT * FROM `houses`";
+    $valueToSearch = $_POST['valueToSearch']? $_POST['valueToSearch'] : "";
+    $city = isset($_POST['cityOption']) ? $_POST['cityOption'] : "";
+    $rooms = isset($_POST['number_rooms']) ? $_POST['number_rooms'] : "";
+    $property = $_POST['property']? $_POST['property'] : "";
 }
 
 
 if (isset($_POST['house_add_btn'])) {
     $perks = $_POST['perks'];
-    $perks?$inputData['perks'] = implode(',', $perks):[];
-    $inputData['username']= $_SESSION['auth_user']["user_username"];
-    
+    $perks ? $inputData['perks'] = implode(',', $perks) : [];
+    $inputData['username'] = $_SESSION['auth_user']["user_username"];
+
     $house->create($inputData);
+}
+if (isset($_POST['clear'])) {
+    $house->houseDetails();
 }

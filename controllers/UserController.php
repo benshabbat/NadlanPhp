@@ -12,8 +12,17 @@ class UserController
 
     public function userDetailsByUsername(string $username)
     {
-        $getHouseData = "SELECT * FROM users WHERE username = '$username'";
-        $result = mysqli_query($this->conn, $getHouseData);
+        $getUserData = "SELECT * FROM users WHERE username = '$username'";
+        $result = mysqli_query($this->conn, $getUserData);
+        $user = $result->fetch_assoc();
+        if ($user) {
+            return $user;
+        }
+    }
+    public function userDetails()
+    {
+        $getUserData = "SELECT * FROM users";
+        $result = mysqli_query($this->conn, $getUserData);
         $user = $result->fetch_assoc();
         if ($user) {
             return $user;

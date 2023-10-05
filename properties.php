@@ -1,38 +1,17 @@
 <?php
 include_once "./controllers/HouseController.php";
-
+$houses = new HouseController;
+$housesDetails = $houses->houseDetails();
 ?>
 
 <section class="property">
-    <div class="wrapper">
-        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="off">
-            <div class="input-box">
-                <label>Search</label>
-                <input type="text" name="valueToSearch" placeholder="Value To Search">
-            </div>
-            <button type="submit" name="search" class="form-btn" value="Filter">חפש</button>
-        </form>
-    </div>
-    <!-- <div class="property-slider-box">
-        <label for="priceRange">Price Range:</label>
-        <input type="text" id="priceRange" readonly>
-        <div id="price-range" class="property-slider"></div>
-    </div> -->
+    <?php
+    include "./inc/search-box-filter.php";
+    ?>
     <div class="property-container">
         <ul class="property-list">
             <?php
-            $houses = new HouseController;
-            // $housesDetails = $houses->houseDetails();
-
-            if (isset($_POST['search'])) // search cars
-            {
-                $valueToSearch = $_POST['valueToSearch'];
-                $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
-                $search_result = $houses->filterTable($query);
-            } else {
-                $query = " SELECT * FROM `houses`";
-                $search_result = $houses->filterTable($query);
-            }
+            $search_result = $houses->search($property, $city, $rooms, $valueToSearch);
             if ($search_result) {
                 foreach ($search_result as $houseDetails) {
             ?>

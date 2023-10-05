@@ -91,21 +91,59 @@ class HouseController
         }
     }
 
-    public function searchType($valueToSearch)
-    {
-
-        if ($valueToSearch) // search cars
-        {
-            $valueToSearch = $_POST['valueToSearch'];
-            $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `typecar`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
-        } else {
-            $query = " SELECT * FROM `houses`";
-        }
-        return mysqli_query($this->conn, $query);
-    }
     public function filterTable($query)
     {
-         return mysqli_query($this->conn, $query);
-        // return $result->fetch_assoc();
+        return mysqli_query($this->conn, $query);
+    }
+    public function searchAll($city, $rooms, $valueToSearch, $property)
+    {
+        $query = " SELECT * FROM `houses` WHERE CONCAT (`username`, `images`, `address`, `sqm`, `floor`, `price`,`property_type`)
+        LIKE '%" . $valueToSearch . "%' AND city ='$city' AND rooms ='$rooms' AND property_type ='$property'";
+
+        if ($city || $rooms || $valueToSearch || $property) {
+            return $this->filterTable($query);
+        } else {
+
+            return $this->houseDetails();
+        }
+    }
+    public function searchValue($valueToSearch)
+    {
+        $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
+        return $this->filterTable($query);
+    }
+    public function searchCity($city)
+    {
+        $query = " SELECT * FROM `houses` WHERE city ='$city' ";
+        return $this->filterTable($query);
+    }
+    public function searchRooms($rooms)
+    {
+        $query = " SELECT * FROM `houses` WHERE rooms ='$rooms' ";
+        return $this->filterTable($query);
+    }
+    public function searchProperty($property)
+    {
+        $query = " SELECT * FROM `houses` WHERE property_type ='$property' ";
+        return $this->filterTable($query);
+    }
+
+    public function search($property, $city, $rooms, $valueToSearch)
+    {
+        if ($valueToSearch) {
+            return $this->searchValue($valueToSearch);
+        }
+        if ($property) {
+            return  $this->searchProperty($property);
+        }
+        if ($rooms) {
+            return $this->searchRooms($rooms);
+        }
+        if ($city) {
+            return $this->searchCity($city);
+        } 
+        else {
+            return $this->houseDetails();
+        }
     }
 }

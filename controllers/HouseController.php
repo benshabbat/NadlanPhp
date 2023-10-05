@@ -37,6 +37,33 @@ class HouseController
             return $result;
         }
     }
+    public function houseDetailsForOprtionsPrice()
+    {
+        $getHouseData = "SELECT DISTINCT `price` FROM `houses` ORDER BY `houses`.`price` ASC";
+        $result = mysqli_query($this->conn, $getHouseData);
+        if ($result) {
+            return $result;
+        }
+    }
+    public function houseDetailsForOprtions($type)
+    {
+        $getHouseData = "SELECT DISTINCT `$type` FROM `houses` ORDER BY `houses`.`$type` ASC";
+        
+        $result = mysqli_query($this->conn, $getHouseData);
+        if ($result) {
+            return $result;
+        }
+    }
+    public function houseDetailsForOprtionsRooms()
+    {
+        $getHouseData = "SELECT DISTINCT `rooms` FROM `houses` ORDER BY `houses`.`rooms` ASC";
+        
+        $result = mysqli_query($this->conn, $getHouseData);
+        if ($result) {
+            return $result;
+        }
+    }
+    
     public function getPerks()
     {
         $getPerks = "SELECT * FROM perks";
@@ -102,15 +129,27 @@ class HouseController
 
     public function filterTable($query)
     {
-        return mysqli_query($this->conn, $query);
+        $result = mysqli_query($this->conn, $query);
+        $result = mysqli_fetch_array($result);
+        $finalArr= [];
+        foreach($result as $list){
+            $finalArr[]=$list;
+        }
+        $newResult = array_unique($finalArr);
+        return $newResult;
     }
     public function searchAll($city, $rooms, $valueToSearch, $property)
     {
-        $query = " SELECT * FROM `houses` WHERE CONCAT (`username`, `images`, `address`, `sqm`, `floor`, `price`,`property_type`)
-        LIKE '%" . $valueToSearch . "%' AND city ='$city' AND rooms ='$rooms' AND property_type ='$property'";
+        // $query = " SELECT * FROM `houses` WHERE CONCAT (`username`, `images`, `address`, `sqm`, `floor`, `price`,`property_type`)
+        // LIKE '%" . $valueToSearch . "%' AND city ='$city' AND rooms ='$rooms' AND property_type ='$property'";
+        $query = " SELECT * FROM `houses`";
 
         if ($city || $rooms || $valueToSearch || $property) {
-            return $this->filterTable($query);
+            $result = mysqli_query($this->conn, $query);
+            foreach ($result as $row) {
+                if ($row['city'] == $city || $row['rooms'] == $rooms || $row['property_tpe'] == $property)
+                    return $result;
+            }
         } else {
 
             return $this->houseDetails();
@@ -119,22 +158,22 @@ class HouseController
     public function searchValue($valueToSearch)
     {
         $query = " SELECT * FROM `houses` WHERE CONCAT (`username`,`city`, `images`, `address`, `sqm`, `rooms`, `floor`, `price`,`property_type`) LIKE '%" . $valueToSearch . "%' ";
-        return $this->filterTable($query);
+        return mysqli_query($this->conn, $query);
     }
     public function searchCity($city)
     {
         $query = " SELECT * FROM `houses` WHERE city ='$city' ";
-        return $this->filterTable($query);
+        return mysqli_query($this->conn, $query);
     }
     public function searchRooms($rooms)
     {
         $query = " SELECT * FROM `houses` WHERE rooms ='$rooms' ";
-        return $this->filterTable($query);
+        return mysqli_query($this->conn, $query);
     }
     public function searchProperty($property)
     {
         $query = " SELECT * FROM `houses` WHERE property_type ='$property' ";
-        return $this->filterTable($query);
+        return mysqli_query($this->conn, $query);
     }
 
     public function search($property, $city, $rooms, $valueToSearch)
@@ -150,8 +189,7 @@ class HouseController
         }
         if ($city) {
             return $this->searchCity($city);
-        } 
-        else {
+        } else {
             return $this->houseDetails();
         }
     }

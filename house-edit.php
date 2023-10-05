@@ -13,25 +13,24 @@ include "./inc/header.php";
     <div class="form-box login">
         <?php
         if (isset($_GET['id'])) {
-            $house_id = mysqli_real_escape_string($db->conn,$_GET['id']);
+            $house_id = mysqli_real_escape_string($db->conn, $_GET['id']);
             $house = new HouseController;
             $houseDetails = $house->edit($house_id);
             // $houseDetails = $house->houseDetailsById($house_id);
             $perks = $houseDetails['perks'];
-            $perks = explode(",",$perks);
-            
+            $perks = explode(",", $perks);
         }
         ?>
         <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" enctype="multipart/form-data">
             <?php include "./message.php" ?>
             <h2>House Edit</h2>
-            <input type="hidden" name="id" value="<?=$house_id; ?>" />
+            <input type="hidden" name="id" value="<?= $house_id; ?>" />
             <div>
                 <label>Property Type:</label>
                 <div class="column">
-                    <input type="radio" name="property_type" value="sale" checked= <?= $houseDetails['property_type']; ?>  />
+                    <input type="radio" name="property_type" value="sale" checked=<?= $houseDetails['property_type']; ?> />
                     For Sale
-                    <input type="radio" name="property_type" value="rent" checked= <?= $houseDetails['property_type']; ?> />
+                    <input type="radio" name="property_type" value="rent" checked=<?= $houseDetails['property_type']; ?> />
                     For Rent
                 </div>
             </div>
@@ -53,7 +52,7 @@ include "./inc/header.php";
             </div>
             <div class="input-box">
                 <label>Price</label>
-                <input type="number" name="price" min=1  value=<?= $houseDetails['price']; ?>/>
+                <input type="number" name="price" min=1 value=<?= $houseDetails['price']; ?> />
             </div>
             <div class="input-box">
                 <label>Rooms</label>
@@ -61,19 +60,19 @@ include "./inc/header.php";
             </div>
             <div class="input-box">
                 <label>SQM</label>
-                <input type="number" name="sqm" min=1 value=<?= $houseDetails['sqm']; ?>/>
+                <input type="number" name="sqm" min=1 value=<?= $houseDetails['sqm']; ?> />
             </div>
             <div>
                 <label>Perks:</label>
                 <div class="column">
-                    <input type="checkbox" name="perks[]" value="air_conditioner" <?= in_array("air_conditioner",$perks)? "checked":false; ?> />Air Conditioner
-                    <input type="checkbox" name="perks[]" value="elevator" <?= in_array("elevator",$perks)? "checked":false; ?>  />Elevator
-                    <input type="checkbox" name="perks[]" value="renovated"  <?= in_array("renovated",$perks)? "checked":false; ?>  />Renovated
-                    <input type="checkbox" name="perks[]" value="furnished" <?= in_array("furnished",$perks)? "checked":false; ?>  />Furnished
-                    <input type="checkbox" name="perks[]" value="bars" <?= in_array("bars",$perks)? "checked":false; ?> />Bars
-                    <input type="checkbox" name="perks[]" value="parking"  <?= in_array("parking",$perks)? "checked":false; ?> />Parking
-                    <input type="checkbox" name="perks[]" value="warehouse"  <?= in_array("warehouse",$perks)? "checked":false; ?> />Warehouse
-                    <input type="checkbox" name="perks[]" value="dimension"  <?= in_array("dimension",$perks)? "checked":false; ?> />Dimension
+                    <input type="checkbox" name="perks[]" value="air_conditioner" <?= in_array("air_conditioner", $perks) ? "checked" : false; ?> />Air Conditioner
+                    <input type="checkbox" name="perks[]" value="elevator" <?= in_array("elevator", $perks) ? "checked" : false; ?> />Elevator
+                    <input type="checkbox" name="perks[]" value="renovated" <?= in_array("renovated", $perks) ? "checked" : false; ?> />Renovated
+                    <input type="checkbox" name="perks[]" value="furnished" <?= in_array("furnished", $perks) ? "checked" : false; ?> />Furnished
+                    <input type="checkbox" name="perks[]" value="bars" <?= in_array("bars", $perks) ? "checked" : false; ?> />Bars
+                    <input type="checkbox" name="perks[]" value="parking" <?= in_array("parking", $perks) ? "checked" : false; ?> />Parking
+                    <input type="checkbox" name="perks[]" value="warehouse" <?= in_array("warehouse", $perks) ? "checked" : false; ?> />Warehouse
+                    <input type="checkbox" name="perks[]" value="dimension" <?= in_array("dimension", $perks) ? "checked" : false; ?> />Dimension
                 </div>
             </div>
 
@@ -84,6 +83,16 @@ include "./inc/header.php";
                 echo $message ?? null; ?>
                 <input type="file" name="image[]" multiple />
             </div>
+            <?php
+            foreach (json_decode($houseDetails['images']) as $image) {
+            ?><div style="  display: flex;
+            flex-direction: row;
+            background-color: red;">
+                    <img src="./assets/images/houses/<?= $image; ?>" alt="<?= $image ?> " width="50">
+                </div>
+            <?php
+            }
+            ?>
 
             <button type="submit" name="house_update_btn" class="form-btn">Update</button>
         </form>

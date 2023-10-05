@@ -2,6 +2,7 @@
 include "./config/app.php";
 include_once "./controllers/UserController.php";
 include "./inc/header.php";
+
 ?>
 <?php
 if (isset($_GET['id'])) {
@@ -20,36 +21,40 @@ if (isset($_GET['id'])) {
         <div class="card">
             <!-- card left -->
             <div class="product-imgs">
-                <div class="img-display">
-                    <div class="img-showcase">
-                        <img src="./assets/shoes_images/shoe_1.jpg" alt="shoe image">
-                        <img src="./assets/shoes_images/shoe_2.jpg" alt="shoe image">
-                        <img src="./assets/shoes_images/shoe_3.jpg" alt="shoe image">
-                        <img src="./assets/shoes_images/shoe_4.jpg" alt="shoe image">
-                    </div>
-                </div>
+                <!-- <div class="img-display">
+                    <?php
+                    foreach (json_decode($houseDetails['images']) as $image) {
+                    ?>
+                        <div class="img-showcase">
+                            <img src="./assets/images/houses/<?= $image; ?>" alt="<?= $image ?>" />
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div> -->
                 <div class="img-select">
                     <div class="img-item">
                         <a href="#" data-id="1">
-                            <img src="./assets/shoes_images/shoe_1.jpg" alt="shoe image">
+                            <img src="./assets/images/houses/<?= $houseDetails['images'][0]; ?>" alt="<?= $image ?>" />
                         </a>
                     </div>
                     <div class="img-item">
                         <a href="#" data-id="2">
-                            <img src="./assets/shoes_images/shoe_2.jpg" alt="shoe image">
+                            <img src="./assets/images/houses/<?= $houseDetails['images'][1]; ?>" alt="<?= $image ?>" />
                         </a>
                     </div>
                     <div class="img-item">
                         <a href="#" data-id="3">
-                            <img src="./assets/shoes_images/shoe_3.jpg" alt="shoe image">
+                            <img src="./assets/images/houses/<?= $houseDetails['images'][2]; ?>" alt="<?= $image ?>" />
                         </a>
                     </div>
                     <div class="img-item">
                         <a href="#" data-id="4">
-                            <img src="./assets/shoes_images/shoe_4.jpg" alt="shoe image">
+                            <img src="./assets/images/houses/<?= $houseDetails['images'][3]; ?>" alt="<?= $image ?>" />
                         </a>
                     </div>
                 </div>
+
             </div>
             <!-- card right -->
             <div class="product-content">

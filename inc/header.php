@@ -13,7 +13,7 @@
 
 <body>
   <header class="header">
-    <a class="logo" href="index.php">Logo</a>
+    <a class="logo" href="index.php">Nadlan</a>
     <input type="checkbox" id="check" />
     <label for="check" class="icons">
       <i class='bx bx-menu' id="menu-icon"></i>
@@ -22,11 +22,12 @@
 
     <?php if (isset($_SESSION['authenticated'])) : ?>
       <nav class="navbar">
-        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+        <!-- <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
           <button type="submit" name="logout_btn">Logout</button>
-        </form>
+        </form> -->
         <a href="house-view.php">My Houses</a>
         <a href="profile.php">Hello <?php echo $_SESSION['auth_user']["user_username"]; ?></a>
+        <a href="logout.php" tite="Logout">Logout</a>
       </nav>
     <?php else : ?>
       <nav class="navbar">
@@ -37,7 +38,7 @@
       </nav>
     <?php endif; ?>
   </header>
-  
+
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 </body>
 

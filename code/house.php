@@ -12,9 +12,9 @@ $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_INT);
 $rooms = filter_input(INPUT_POST, "rooms", FILTER_SANITIZE_NUMBER_INT);
 $sqm = filter_input(INPUT_POST, "sqm", FILTER_SANITIZE_NUMBER_INT);
 $perks = [];
-$valueToSearch="";
-$property="";
-$maxPrice=9999999999;
+$valueToSearch=filter_input(INPUT_POST, "valueToSearch", FILTER_SANITIZE_SPECIAL_CHARS);
+$property= filter_input(INPUT_POST, "property", FILTER_SANITIZE_SPECIAL_CHARS);
+$maxPrice=99999999;
 $minPrice=0;
 $inputData = [
     'username' => $username,
@@ -48,7 +48,7 @@ if (isset($_POST['search'])) // search houses
     $valueToSearch = $_POST['valueToSearch']? $_POST['valueToSearch'] : false;
     $city = isset($_POST['cityOption']) ? $_POST['cityOption'] : false;
     $rooms = isset($_POST['number_rooms']) ? $_POST['number_rooms'] : false;
-    $property = $_POST['property']? $_POST['property'] : false;
+    $property = isset($_POST['property'])? $_POST['property'] : false;
     $minPrice = $_POST['minPrice']? $_POST['minPrice'] : 0;
     $maxPrice = $_POST['maxPrice']? $_POST['maxPrice'] : 9999999999;
 }

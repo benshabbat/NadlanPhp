@@ -37,6 +37,15 @@ class HouseController
             return $result;
         }
     }
+    public function getPerks()
+    {
+        $getPerks = "SELECT * FROM perks";
+        $result = mysqli_query($this->conn, $getPerks);
+        // $house = $result->fetch_assoc();
+        if ($result) {
+            return $result;
+        }
+    }
     public function houseDetailsByUsername(string $username)
     {
         // $username = $_SESSION['auth_user']['user_username'];

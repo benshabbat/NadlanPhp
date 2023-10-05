@@ -13,6 +13,7 @@
                 </option>
             <?php endwhile; ?>
         </select>
+
         <select name="number_rooms">
             <option value="">Rooms</option>
             <option value="1">1</option>

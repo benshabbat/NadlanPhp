@@ -5,6 +5,7 @@ include_once "./controllers/UserController.php";
 $auth = new LoginController;
 $db = new DatabaseConnection;
 $user = new UserController;
+
 // $username = $email = $phone = $password = $confirm_password = "";
 // $username =  mysqli_real_escape_string($db->conn, $_POST['username']);
 // $email =  mysqli_real_escape_string($db->conn, $_POST['email']);
@@ -47,6 +48,7 @@ if (isset($_POST['register_btn'])) {
         redirect("The password dosen't match", "register.php");
     }
 }
+
 if (isset($_POST['user_update_btn'])) {
     $id = $_POST['id'];
     $user->update($inputData, $id);

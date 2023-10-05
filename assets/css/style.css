@@ -931,5 +931,4 @@ tbody td.active {
 .buttons{
   display: flex;
   flex-direction: row;
-  background-color: red;
 }

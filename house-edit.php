@@ -81,7 +81,7 @@ include "./inc/header.php";
                 <?php
                 include "./inc/upload.php";
                 echo $message ?? null; ?>
-                <input type="file" name="image[]" multiple value="<?= $houseDetails['images'] ?>"/>
+                <input type="file" name="image[]" multiple value="<?= json_decode($houseDetails['images']) ?>"/>
             </div>
             <?php
             foreach (json_decode($houseDetails['images']) as $image) {

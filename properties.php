@@ -25,8 +25,7 @@ $housesDetails = $houses->houseDetails();
 
                                 <div class="card-content">
 
-                                    <h2 href="#" class="card-title">City <?= $houseDetails['city']; ?> </h2>
-                                    <h3 href="#" class="card-title">Address <?= $houseDetails['address']; ?> </h3>
+                                    <a class="card-title">City <?= $houseDetails['city']; ?> Address <?= $houseDetails['address']; ?> </a>
 
                                     <ul class="card-list">
                                         <li class="card-item">

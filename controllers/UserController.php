@@ -45,7 +45,16 @@ class UserController
 
     public function update($inputData, $id)
     {
-
+        $phone=$this->templatePhone($inputData['phone']);
+        $userUpdateQuery = "UPDATE users SET username='$inputData[username]',email='$inputData[email]'
+        ,phone='$phone' 
+         WHERE id = '$id' limit 1";
+        $result = mysqli_query($this->conn, $userUpdateQuery);
+        if ($result) {
+            redirect("User updated Success", "house-view.php");
+        } else {
+            redirect("Something went wrong", "house-view.php");
+        }
    
     }
 
@@ -53,4 +62,10 @@ class UserController
     {
 
     }
+    public function templatePhone($phone)
+    {
+    if (strlen($phone) == 10)
+        $str = substr($phone, 0, 3) . "-" . substr($phone, 3, 7);
+    return $str;
+    } 
 }

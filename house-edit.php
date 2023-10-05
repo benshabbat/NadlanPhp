@@ -64,16 +64,16 @@ include "./inc/header.php";
             </div>
             <div>
                 <label>Perks:</label>
-                <div class="column">
+             
                     <input type="checkbox" name="perks[]" value="air_conditioner" <?= in_array("air_conditioner", $perks) ? "checked" : false; ?> />Air Conditioner
                     <input type="checkbox" name="perks[]" value="elevator" <?= in_array("elevator", $perks) ? "checked" : false; ?> />Elevator
                     <input type="checkbox" name="perks[]" value="renovated" <?= in_array("renovated", $perks) ? "checked" : false; ?> />Renovated
                     <input type="checkbox" name="perks[]" value="furnished" <?= in_array("furnished", $perks) ? "checked" : false; ?> />Furnished
-                    <input type="checkbox" name="perks[]" value="bars" <?= in_array("bars", $perks) ? "checked" : false; ?> />Bars
+                    <input type="checkbox" name="perks[]" value="bars" <?= in_array("bars", $perks) ? "checked" : false; ?> />Bars<br/>
                     <input type="checkbox" name="perks[]" value="parking" <?= in_array("parking", $perks) ? "checked" : false; ?> />Parking
                     <input type="checkbox" name="perks[]" value="warehouse" <?= in_array("warehouse", $perks) ? "checked" : false; ?> />Warehouse
                     <input type="checkbox" name="perks[]" value="dimension" <?= in_array("dimension", $perks) ? "checked" : false; ?> />Dimension
-                </div>
+                
             </div>
 
             <div class="input-box">
@@ -81,7 +81,7 @@ include "./inc/header.php";
                 <?php
                 include "./inc/upload.php";
                 echo $message ?? null; ?>
-                <input type="file" name="image[]" multiple />
+                <input type="file" name="image[]" multiple value="<?= $houseDetails['images'] ?>"/>
             </div>
             <?php
             foreach (json_decode($houseDetails['images']) as $image) {

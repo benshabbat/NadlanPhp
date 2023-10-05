@@ -1,8 +1,10 @@
 <?php
 include_once "./controllers/RegisterController.php";
 include_once "./controllers/LoginController.php";
+include_once "./controllers/UserController.php";
 $auth = new LoginController;
 $db = new DatabaseConnection;
+$user = new UserController;
 // $username = $email = $phone = $password = $confirm_password = "";
 // $username =  mysqli_real_escape_string($db->conn, $_POST['username']);
 // $email =  mysqli_real_escape_string($db->conn, $_POST['email']);
@@ -16,7 +18,11 @@ $email =  filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 $confirm_password = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);
-
+$inputData = [
+    'username' => $username,
+    'email' => $email,
+    'phone' => $phone,
+];
 if (isset($_POST['logout_btn'])) {
     $auth->logout();
 }
@@ -40,4 +46,8 @@ if (isset($_POST['register_btn'])) {
     } else {
         redirect("The password dosen't match", "register.php");
     }
+}
+if (isset($_POST['user_update_btn'])) {
+    $id = $_POST['id'];
+    $user->update($inputData, $id);
 }

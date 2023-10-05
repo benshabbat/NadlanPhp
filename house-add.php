@@ -45,7 +45,7 @@ include "./inc/header.php";
             </div>
             <div class="input-box">
                 <label>Rooms</label>
-                <select name="taskOption">
+                <select name="rooms">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -62,16 +62,16 @@ include "./inc/header.php";
             </div>
             <div>
                 <label>Perks:</label>
-                <div class="column">
-                    <input type="checkbox" name="perks[]" value="air_conditioner" />Air Conditioner
-                    <input type="checkbox" name="perks[]" value="elevator" />Elevator
-                    <input type="checkbox" name="perks[]" value="renovated" />Renovated
-                    <input type="checkbox" name="perks[]" value="furnished" />Furnished
-                    <input type="checkbox" name="perks[]" value="bars" />Bars
-                    <input type="checkbox" name="perks[]" value="parking" />Parking
-                    <input type="checkbox" name="perks[]" value="warehouse" />Warehouse
-                    <input type="checkbox" name="perks[]" value="dimension" />Dimension
-                </div>
+
+                <input type="checkbox" name="perks[]" value="air_conditioner" />Air Conditioner
+                <input type="checkbox" name="perks[]" value="elevator" />Elevator
+                <input type="checkbox" name="perks[]" value="renovated" />Renovated
+                <input type="checkbox" name="perks[]" value="furnished" />Furnished<br />
+
+                <input type="checkbox" name="perks[]" value="bars" />Bars
+                <input type="checkbox" name="perks[]" value="parking" />Parking
+                <input type="checkbox" name="perks[]" value="warehouse" />Warehouse
+                <input type="checkbox" name="perks[]" value="dimension" />Dimension
             </div>
 
             <div class="input-box">

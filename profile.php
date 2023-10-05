@@ -24,13 +24,13 @@ include "./inc/header.php";
                     <label>Phone : <?= $data["phone"] ?> </label>
                 </div>
                 <div class="input-box">
-                    <label>Username : <?= $data["username"] ?> </label>
-                </div>
-                <div class="input-box">
                     <label>Created At : <?= date_format(date_create($data['reg_date']), 'g:ia \o\n l jS F Y'); ?> </label>
                 </div>
                 <div class="input-box">
                     <label><a href="house-view.php">Your Houses</a></label>
+                </div>
+                <div class="input-box">
+                    <label><a href="./profile-edit.php?id=<?= $data['id']; ?>">Edit</a></label>
                 </div>
 
             </form>

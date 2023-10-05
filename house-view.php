@@ -27,11 +27,17 @@ include "./inc/header.php";
                         <li>
                             <div class="property-card">
                                 <a href="./profile-house.php?id=<?= $houseDetails['id']; ?>">
-                                
-                                    <figure class="card-banner">
-                                        <img src="./assets/images/houses/img1.jpg" alt="img1" class="img-cover">
-                                        <!-- <img src="./assets/images/houses/".<?= $houseDetails['images']; ?> alt="<?= $houseDetails['images']; ?>" class="img-cover" /> -->
-                                    </figure>
+                                    <?php
+                                    foreach (json_decode($houseDetails['images']) as $image) {
+                                    ?>
+                                        <figure class="card-banner">
+                                            <img src="./assets/images/houses/<?= $image; ?>" alt="<?= $image ?>" class="img-cover">
+                                        </figure>
+                                    <?php
+                                        break;
+                                    }
+                                    ?>
+
 
                                     <div class="card-content">
                                         <h3 class="property-h3">

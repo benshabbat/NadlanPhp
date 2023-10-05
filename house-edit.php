@@ -85,11 +85,10 @@ include "./inc/header.php";
             </div>
             <?php
             foreach (json_decode($houseDetails['images']) as $image) {
-            ?><div style="  display: flex;
-            flex-direction: row;
-            background-color: red;">
-                    <img src="./assets/images/houses/<?= $image; ?>" alt="<?= $image ?> " width="50">
-                </div>
+            ?>
+                <figure class="card-banner">
+                    <img src="./assets/images/houses/<?= $image; ?>" alt="<?= $image ?>" class="img-cover">
+                </figure>
             <?php
             }
             ?>

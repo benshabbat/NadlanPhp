@@ -6,13 +6,7 @@ $auth = new LoginController;
 $db = new DatabaseConnection;
 $user = new UserController;
 
-// $username = $email = $phone = $password = $confirm_password = "";
-// $username =  mysqli_real_escape_string($db->conn, $_POST['username']);
-// $email =  mysqli_real_escape_string($db->conn, $_POST['email']);
-// $phone = mysqli_real_escape_string($db->conn, $_POST['phone']);
-// $password = mysqli_real_escape_string($db->conn, $_POST['password']);
-// $confirm_password = mysqli_real_escape_string($db->conn, $_POST['confirm_password']);
-
+//filter input jus for form to change 
 
 $username =  filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 $email =  filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
@@ -29,7 +23,7 @@ if (isset($_POST['logout_btn'])) {
 }
 
 if (isset($_POST['login_btn'])) {
-    $password = md5($password);
+    $passwor= md5($password);
     $auth->userLogin($username, $password);
 }
 

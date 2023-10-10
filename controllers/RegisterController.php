@@ -23,9 +23,9 @@ class RegisterController
     }
 
     public function isUserExist($username){
-        $checkUser = "SELECT username FROM users WHERE username= '$username' LIMIT 1 ";
+        $checkUser = "SELECT username FROM users WHERE username= '$username' ";
         $result = $this->conn->query($checkUser);
-        if($result->num_rows > 0){
+        if($result){
             redirect("Already User is Exist", "register.php");
         }
         else{
@@ -34,9 +34,9 @@ class RegisterController
 
     }
     public function isEmailExist($email){
-        $checkUser = "SELECT email FROM users WHERE email= '$email' LIMIT 1 ";
+        $checkUser = "SELECT email FROM users WHERE email= '$email' ";
         $result = $this->conn->query($checkUser);
-        if($result->num_rows > 0){
+        if($result){
             redirect("Already Email is Exist", "register.php");
         }
         else{
